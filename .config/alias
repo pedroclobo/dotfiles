@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/sh
 
 alias vi="nvim"
 
@@ -8,5 +8,21 @@ alias la='exa -al --color=always --group-directories-first' # my preferred listi
 
 alias weather='curl wttr.in/Lisbon'
 
-sc() { du -a $HOME/.local/bin/scripts/* $HOME/.local/bin/statusbar/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
-uni() { open $(du -a $HOME/Universidade | awk '{print $2}' | fzf) ;}
+cfg() {
+    open $(du -a --exclude .git \
+                 --exclude $HOME/.config/nvim/plugged $HOME/.config/nvim/plugged \
+              $HOME/.xinitrc \
+              $HOME/.Xresources \
+              $HOME/.zprofile \
+              $HOME/.config/zsh/.zshrc \
+              $HOME/.config/alias \
+              $HOME/.config/zoomus.conf \
+              $HOME/.config/alacritty \
+              $HOME/.config/nvim \
+              | awk '{print $2}' | fzf ) }
+
+sc() {
+    du -a $HOME/.local/bin/scripts/* $HOME/.local/bin/statusbar/* | awk '{print $2}' | fzf | xargs -r $EDITOR }
+
+uni() {
+    open $(du -a $HOME/Universidade | awk '{print $2}' | fzf) }
