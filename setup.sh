@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/sh
 dir=/home/$USER/Projects/dotfiles
 
 # Xorg files
