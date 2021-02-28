@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Get current volume
+volume=$(pulsemixer --get-volume | sed 's/\s.*$//')
+
+# Checks for mute
+mute=$(pulsemixer --get-mute)
+
+# When the sink isn't muted
+if [ $mute == 0 ]
+then
+	if [ $volume == 0 ]
+	then
+		icon=" "
+	elif [ $volume -gt 0 -a $volume -lt 50 ]
+	then
+		icon=" "
+	else
+		icon=" "
+	fi
+fi
+
+# When the sink is muted
+if [ $mute == 1 ]
+then
+	icon=" "
+	label="MUTED"
+fi
+
+# Print the output
+# When the sink isn't muted
+if [ $mute == 0 ]
+then
+	echo "$icon$volume%"
+
+# When the sink is muted
+else
+	echo "$icon$label"
+fi

@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# Dmenu script for editing some of my more frequently edited config files.
+
+restart()
+{
+    declare options=("Linux\nWindows\nUEFI")
+    choice=$(echo -e "${options[@]}" | dmenu -i -p 'What to reboot to?: ')
+
+    case $choice in
+        Linux)    systemctl reboot --boot-loader-entry=arch.conf;;
+    	Windows)  systemctl reboot --boot-loader-entry=windows.conf ;;
+        UEFI)     systemctl reboot --firmware-setup ;;
+    	*) ;;
+    esac
+}
+
+declare options=("Shutdown\nReboot\nHibernate\nSuspend")
+choice=$(echo -e "${options[@]}" | dmenu -i -p 'What to do?: ')
+
+case $choice in
+	Shutdown)   systemctl poweroff ;;
+    Reboot)     restart ;;
+	Hibernate)  systemctl hibernate ;;
+	Suspend)    systemctl suspend ;;
+	*) ;;
+esac

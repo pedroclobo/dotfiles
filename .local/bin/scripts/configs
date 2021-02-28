@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Dmenu script for editing some of my more frequently edited config files.
+
+file=$(printf "dmenu\ndwm\nvim\nst" | dmenu -i -p 'Edit config file: ')
+
+case "$file" in
+	dmenu)
+		choice="$HOME/.config/dmenu/config.def.h"
+	;;
+	dwm)
+		choice="$HOME/.config/dwm/config.def.h"
+	;;
+	st)
+		choice="$HOME/.config/st/config.def.h"
+	;;
+	vim)
+		choice="$HOME/.config/nvim/init.vim"
+	;;
+	*)
+		exit 1
+
+esac
+$TERMINAL -e $EDITOR "$choice"

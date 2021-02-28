@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Dmenu script for editing some of my more frequently edited config files.
+
+declare options=("Bluetooth\nBackup")
+choice=$(echo -e "${options[@]}" | dmenu -i -p 'What to do?: ')
+
+case $choice in
+	Bluetooth) sudo blueberry ;;
+	Backup)  sudo timeshift-gtk ;;
+	*) ;;
+esac

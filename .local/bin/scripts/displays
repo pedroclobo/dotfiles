@@ -1,0 +1,6 @@
+#!/bin/sh
+
+output=$(printf "PC\\nHDMI" | dmenu -i -p "Screen Options")
+
+[ "$output" = "PC" ] && xrandr --output eDP1 --auto --output HDMI1 --off && nitrogen --restore
+[ "$output" = "HDMI" ] && xrandr --output HDMI1 --auto --output eDP1 --off && nitrogen --restore

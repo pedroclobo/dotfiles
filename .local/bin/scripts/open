@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# This script will open or change directories depending on the input.
+
+file=$(readlink -f "$1")
+dir=${file%/*}
+filename="${file%.*}"
+ext="${file##*.}"
+
+case "$ext" in
+    pdf) zathura "$file";;
+    jpg|png) sxiv "$file";;
+    py|c) $EDITOR "$file";;
+    *) cd "$file" && $SHELL;;
+esac

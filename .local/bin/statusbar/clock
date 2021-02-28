@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Prints date with added icons
+date "+ %d-%b-%Y |  %R "
