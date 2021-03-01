@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/sh
 
 # This script will open or change directories depending on the input.
 
@@ -9,6 +9,7 @@ open_file() {
     case "$ext" in
         pdf) zathura "$file";;
         jpg|png) sxiv "$file";;
+        mp4|mkv) mpv "$file";;
         py|c|*) $EDITOR "$file";;
     esac
 }

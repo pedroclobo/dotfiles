@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/sh
 
 output=$(printf "PC\\nHDMI" | dmenu -i -p "Screen Options")
 

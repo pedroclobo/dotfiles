@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/sh
 
 # Get current volume
 volume=$(pulsemixer --get-volume | sed 's/\s.*$//')
