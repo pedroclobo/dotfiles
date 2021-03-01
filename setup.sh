@@ -16,11 +16,12 @@ ln -s -f $dir/.config/zoomus.conf /home/$USER/.config/zoomus.conf
 # Scripts
 ln -s -f $dir/.local/bin/scripts/audio /home/$USER/.local/bin/scripts/audio
 ln -s -f $dir/.local/bin/scripts/compiler /home/$USER/.local/bin/scripts/compiler
-ln -s -f $dir/.local/bin/scripts/configs /home/$USER/.local/bin/scripts/configs
 ln -s -f $dir/.local/bin/scripts/displays /home/$USER/.local/bin/scripts/displays
 ln -s -f $dir/.local/bin/scripts/monitors /home/$USER/.local/bin/scripts/monitors
 ln -s -f $dir/.local/bin/scripts/open /home/$USER/.local/bin/scripts/open
 ln -s -f $dir/.local/bin/scripts/power /home/$USER/.local/bin/scripts/power
+ln -s -f $dir/.local/bin/scripts/screen-clip /home/$USER/.local/bin/scripts/screen-clip
+ln -s -f $dir/.local/bin/scripts/screen-save /home/$USER/.local/bin/scripts/screen-save
 ln -s -f $dir/.local/bin/scripts/settings /home/$USER/.local/bin/scripts/settings
 
 # Status bar
