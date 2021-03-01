@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Script for taking screenshots.
+
+type=$(printf "Full screen\nCurrent window\nSelected area" | dmenu -i -p 'What to do? ')
+
+case $type in
+    "Full screen") maim | xclip -selection clipboard -t image/png ;;
+    "Current window") maim -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png ;;
+    "Selected area") maim -s | xclip -selection clipboard -t image/png ;;
+	*) ;;
+esac
