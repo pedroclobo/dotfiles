@@ -1,27 +1,18 @@
-#!/usr/bin/sh
+#!/bin/sh
 
+# I prefer to type vi
 alias vi="nvim"
 
-alias ls='exa --color=always --group-directories-first'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first'  # long format
-alias la='exa -al --color=always --group-directories-first' # my preferred listing
+# ls options
+alias ls='ls --color=always --group-directories-first'  # all files and dirs
+alias ll='ls -l --color=always --group-directories-first'  # long format
+alias la='ls -al --color=always --group-directories-first' # my preferred listing
 
-alias weather='curl wttr.in/Lisbon'
+# Add verbosity to cp
+alias cp='cp -v'
 
-cfg() {
-    open $(du -a --exclude .git \
-                 --exclude $HOME/.config/nvim/plugged \
-              $HOME/.xinitrc \
-              $HOME/.Xresources \
-              $HOME/.zprofile \
-              $HOME/.config/zsh/.zshrc \
-              $HOME/.config/alias \
-              $HOME/.config/zoomus.conf \
-              $HOME/.config/alacritty \
-              $HOME/.config/nvim \
-              | awk '{print $2}' | fzf )
-}
 
+### fzf functions
 sc() {
     du -a $HOME/.local/bin/scripts/* $HOME/.local/bin/statusbar/* | awk '{print $2}' | fzf | xargs -r $EDITOR
 }
