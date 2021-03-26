@@ -1,0 +1,15 @@
+#!/usr/bin/sh
+
+# This script will compile or run another finishing operation on a document.
+
+file=$(readlink -f "$1")
+dir=${file%/*}
+filename="${file%.*}"
+ext="${file##*.}"
+
+cd "$dir" || exit
+
+case "$ext" in
+    python) python $filename ;;
+    c) $filename ;;
+esac
