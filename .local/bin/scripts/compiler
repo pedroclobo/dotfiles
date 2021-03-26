@@ -1,6 +1,8 @@
-#!/usr/bin/sh
+#!/bin/sh
+# Compile file upon execution.
 
-# This script will compile or run another finishing operation on a document.
+# C Flags
+CFLAGS="-ansi -pedantic -Wall -Wextra -Werror"
 
 file=$(readlink -f "$1")
 dir=${file%/*}
@@ -10,6 +12,5 @@ ext="${file##*.}"
 cd "$dir" || exit
 
 case "$ext" in
-    c) gcc -ansi -pedantic -Wall -Wextra -Werror "$file" -o "$filename" && "$filename";;
-    py) python "$file";;
+    c) gcc $CFLAGS "$file" -o "$filename" ;;
 esac

@@ -1,11 +1,9 @@
-#!/usr/bin/sh
+#!/bin/sh
+# Acts as control panel.
 
-# Script that acts as my control panel.
-
-choice=$(printf "Bluetooth\nBackup" | dmenu -i -p 'What to do? ')
+choice=$(echo "Bluetooth\nBackup" | dmenu -i -p 'What to do? ')
 
 case $choice in
-	Bluetooth) sudo blueberry ;;
-	Backup)  sudo timeshift-gtk ;;
-	*) ;;
+	Bluetooth) doas blueberry ;;
+	Backup) doas timeshift-gtk ;;
 esac

@@ -1,6 +1,5 @@
 #!/bin/sh
-
-# Dmenu script for editing some of my more frequently edited config files.
+# Serves as a power control to restart, poweroff, etc.
 
 restart()
 {

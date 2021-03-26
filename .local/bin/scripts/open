@@ -1,16 +1,20 @@
-#!/usr/bin/sh
+#!/bin/sh
+# This script will open the input file or change directories depending on the input.
 
-# This script will open or change directories depending on the input.
+### Default apps
+PDF="zathura"
+IMAGE="sxiv"
+VIDEO="mpv"
 
 file=$(readlink -f "$1")
 ext="${file##*.}"
 
 open_file() {
     case "$ext" in
-        pdf) zathura "$file";;
-        jpg|png) sxiv "$file";;
-        mp4|mkv) mpv "$file";;
-        py|c|*) $EDITOR "$file";;
+        pdf) $PDF "$file";;
+        jpg|png) $IMAGE "$file";;
+        mp4|mkv) $VIDEO "$file";;
+        py|c|txt) $EDITOR "$file";;
     esac
 }
 

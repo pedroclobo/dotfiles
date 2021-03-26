@@ -1,6 +1,5 @@
-#!/usr/bin/sh
-
-# This script will compile or run another finishing operation on a document.
+#!/bin/sh
+# Run a file.
 
 file=$(readlink -f "$1")
 dir=${file%/*}

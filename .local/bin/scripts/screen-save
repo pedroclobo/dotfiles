@@ -1,8 +1,7 @@
 #!/bin/sh
+# Takes a screenshot and saves it as a file.
 
-# Script for taking screenshots.
-
-type=$(printf "Full screen\nCurrent window\nSelected area" | dmenu -i -p 'What to do? ')
+type=$(echo "Full screen\nCurrent window\nSelected area" | dmenu -i -p 'What to do? ')
 
 case $type in
     "Full screen") maim $HOME/Pictures/Screenshot/"$(date '+%y%m%d-%H%M-%S').png" ;;
