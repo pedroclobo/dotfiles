@@ -4,8 +4,8 @@
 dir="/home/$USER/Projects/dotfiles"
 
 ### Files
-([ -d "$USER/.local/bin/scripts" ] && [ -d "$USER/.local/bin/statusbar" ]) ||
-mkdir -p $USER/.local/bin/{scripts,statusbar}
+([ -d "/home/$USER/.local/bin/scripts" ] && [ -d "/home/$USER/.local/bin/statusbar" ]) ||
+mkdir -p /home/$USER/.local/bin/{scripts,statusbar}
 
 files=$(find $dir -type f | grep -v -e ".git" -e "md" -e "setup")
 
