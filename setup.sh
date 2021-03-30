@@ -13,8 +13,8 @@ files=$(find $dir -type f | grep -v -e ".git" -e "md" -e "setup")
 # Link every file
 for file in $files
 do
-    link=$(echo $file | sed "s/\/Projects\/dotfiles//")
-    ln -s -f $file $link
+	link=$(echo $file | sed "s/\/Projects\/dotfiles//")
+	ln -s -f $file $link
 done
 
 # Create wgetrc as .zprofile points to it
