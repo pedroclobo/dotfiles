@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Signals dwmblocks for a module update
+update_bar() {
+	pkill -RTMIN+2 dwmblocks
+}
+
+lower_brightness() {
+	light -U "$1"
+}
+
+raise_brightness() {
+	light -A "$1"
+}
+
+
+case "$1" in
+	"-"[0-9]*) lower_brightness "$1" ;;
+	"+"[0-9]*) raise_brightness "$1" ;;
+	*) echo "Invalid input!" ;;
+esac
