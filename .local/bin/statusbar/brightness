@@ -3,7 +3,7 @@
 brightness=$(light | sed "s/\...//g")
 
 # Output
-echo "  "$brightness"%"
+echo "💡 "$brightness"%"
 
 # Buttons
 case "$BUTTON" in

@@ -4,13 +4,14 @@ volume=$(pulsemixer --get-volume | sed 's/\s.*$//')
 mute=$(pulsemixer --get-mute)
 
 # Icons and labels
-[ "$mute" = 0 ] && [ "$volume" = 0 ] && icon=" "
-[ "$mute" = 0 ] && [ "$volume" -gt 0 ] && [ "$volume" -lt 50 ] && icon=" "
-[ "$mute" = 0 ] && [ "$volume" -ge 50 ] && icon=" "
-[ "$mute" = 1 ] && icon=" " &&	label="MUTED"
+[ "$mute" = 0 ] && [ "$volume" = 0 ] && icon="🔈"
+[ "$mute" = 0 ] && [ "$volume" -gt 0 ] && [ "$volume" -lt 50 ] && icon="🔉 "
+[ "$mute" = 0 ] && [ "$volume" -ge 50 ] && icon="🔊 "
+[ "$mute" = 1 ] && icon="🔈" &&	label="MUTED"
+
 
 # Output
-[ "$mute" = 0 ] && echo "$icon$volume%" || echo "$icon$label"
+[ "$mute" = 0 ] && echo " $icon$volume%" || echo "$icon$label"
 
 # Buttons
 case "$BUTTON" in

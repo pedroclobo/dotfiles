@@ -3,10 +3,10 @@
 status=$(cat /sys/class/power_supply/BAT1/status)
 capacity=$(cat /sys/class/power_supply/BAT1/capacity)
 
-[ "$status" = "Charging" ] && icon=" " || icon=" "
+[ "$status" = "Discharging" ] && icon="🔋" || icon="⚡"
 
 # Output
-echo "$icon""$capacity"%
+echo "$icon" "$capacity"%
 
 # Buttons
 case "$BUTTON" in
