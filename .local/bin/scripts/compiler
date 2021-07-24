@@ -1,8 +1,7 @@
 #!/bin/sh
-# Compile file upon execution.
 
 # C Flags
-CFLAGS="-ansi -pedantic -Wall -Wextra -Werror"
+CFLAGS="-ansi -pedantic -Wall -Wextra -Werror -g"
 
 file=$(readlink -f "$1")
 dir=${file%/*}
@@ -12,5 +11,5 @@ ext="${file##*.}"
 cd "$dir" || exit
 
 case "$ext" in
-    c) gcc $CFLAGS "$file" -o "$filename" ;;
+    c) gcc "$CFLAGS" "$file" -o "$filename" ;;
 esac
