@@ -8,10 +8,13 @@ xrdb .Xresources            # Update Xresources
 nitrogen --restore &        # Set wallpaper
 dwmblocks &                 # DWM bar
 xset s off -dpms            # Disable screen timeout
-redshift -l 38.610161:-9.096800 &
+redshift &                  # Night light
+#picom &
 
+# Fast dwm reloading
 while true; do
-	dwm >/dev/null 2>&1
+	dwm
 done
 
+# Start desktop
 exec dwm
