@@ -1,5 +1,4 @@
 #!/bin/sh
-# Run a file.
 
 file=$(readlink -f "$1")
 dir=${file%/*}
@@ -9,6 +8,7 @@ ext="${file##*.}"
 cd "$dir" || exit
 
 case "$ext" in
-    python) python $filename ;;
+    py) python $file ;;
     c) $filename ;;
+	java) java "$file" ;;
 esac
