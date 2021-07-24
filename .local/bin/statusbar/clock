@@ -1,4 +1,9 @@
-#!/usr/bin/sh
+#!/bin/sh
 
-# Prints date with added icons
+# Output
 date "+ %d-%b-%Y |  %R "
+
+# Buttons
+case "$BUTTON" in
+	2) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac

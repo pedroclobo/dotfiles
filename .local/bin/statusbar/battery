@@ -1,20 +1,14 @@
-#!/usr/bin/sh
+#!/bin/sh
 
-# Get battery status
 status=$(cat /sys/class/power_supply/BAT1/status)
-
-# Get battery capacity
 capacity=$(cat /sys/class/power_supply/BAT1/capacity)
 
-# Define icon if charging
-if [ $status == "Charging" ]
-then
-	icon=" "
+[ "$status" = "Charging" ] && icon=" " || icon=" "
 
-# Define icon if full or discharging
-else
-	icon=" "
-fi
+# Output
+echo "$icon""$capacity"%
 
-# Print icon and battery percentage
-echo "$icon$capacity%"
+# Buttons
+case "$BUTTON" in
+	2) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac

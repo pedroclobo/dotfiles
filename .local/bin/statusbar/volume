@@ -1,39 +1,22 @@
 #!/bin/sh
 
-# Get current volume
 volume=$(pulsemixer --get-volume | sed 's/\s.*$//')
-
-# Checks for mute
 mute=$(pulsemixer --get-mute)
 
-# When the sink isn't muted
-if [ $mute = 0 ]
-then
-	if [ $volume = 0 ]
-	then
-		icon=" "
-	elif [ $volume -gt 0 -a $volume -lt 50 ]
-	then
-		icon=" "
-	else
-		icon=" "
-	fi
-fi
+# Icons and labels
+[ "$mute" = 0 ] && [ "$volume" = 0 ] && icon=" "
+[ "$mute" = 0 ] && [ "$volume" -gt 0 ] && [ "$volume" -lt 50 ] && icon=" "
+[ "$mute" = 0 ] && [ "$volume" -ge 50 ] && icon=" "
+[ "$mute" = 1 ] && icon=" " &&	label="MUTED"
 
-# When the sink is muted
-if [ $mute = 1 ]
-then
-	icon=" "
-	label="MUTED"
-fi
+# Output
+[ "$mute" = 0 ] && echo "$icon$volume%" || echo "$icon$label"
 
-# Print the output
-# When the sink isn't muted
-if [ $mute = 0 ]
-then
-	echo "$icon$volume%"
-
-# When the sink is muted
-else
-	echo "$icon$label"
-fi
+# Buttons
+case "$BUTTON" in
+	1) volume-change mute ;;
+	2) "$TERMINAL" -e "$EDITOR" "$0" ;;
+	3) "$TERMINAL" -e pulsemixer ;;
+	4) volume-change +5 ;;
+	5) volume-change -5 ;;
+esac
