@@ -1,15 +1,10 @@
 #!/bin/sh
 
-SHUTDOWN_CMD="systemctl poweroff"
-REBOOT_CMD="systemctl reboot"
-HIBERNATE_CMD="systemctl hibernate"
-SUSPEND_CMD="systemctl suspend"
-
 choice=$(printf "Shutdown\nReboot\nHibernate\nSuspend" | dmenu -i -p 'What to do? ')
 case $choice in
-	Shutdown) "$SHUTDOWN_CMD" ;;
-    Reboot) "$REBOOT_CMD" ;;
-	Hibernate) "$HIBERNATE_CMD" ;;
-	Suspend) "$SUSPEND_CMD" ;;
+	Shutdown) systemctl poweroff ;;
+    Reboot) systemctl reboot ;;
+	Hibernate) systemctl hibernate ;;
+	Suspend) systemctl suspend ;;
 	*) ;;
 esac
