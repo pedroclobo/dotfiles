@@ -4,11 +4,12 @@
 export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 
 # Default programs:
-export EDITOR="nvim"
-export TERMINAL="alacritty"
+export FILE="nautilus"
 export BROWSER="brave"
+export TERMINAL="alacritty"
+export EDITOR="nvim"
 
-# fzf customization
+# fzf
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 
 # ~/ Clean-up:
