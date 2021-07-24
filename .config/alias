@@ -1,26 +1,30 @@
 #!/bin/sh
 
-# I prefer to type vi
 alias vi="nvim"
 
-# ls options
-alias ls='ls --color=always --group-directories-first'  # all files and dirs
-alias ll='ls -l --color=always --group-directories-first'  # long format
-alias la='ls -al --color=always --group-directories-first' # my preferred listing
+alias ls="exa --color=always --group-directories-first"
+alias ll="exa -l --color=always --group-directories-first"
+alias la="exa -la --color=always --group-directories-first"
 
-# Add verbosity to cp
-alias cp='cp -v'
+alias cp="cp -v"
+
+alias grep="grep --color=auto"
 
 
-### fzf functions
-sc() {
-    du -a $HOME/.local/bin/scripts/* $HOME/.local/bin/statusbar/* | awk '{print $2}' | fzf | xargs -r $EDITOR
+# Main way of editing configuration files
+ed() {
+	# Dotfiles repository path
+	repo_dir="$HOME/Projects/dotfiles"
+
+	# List of all files to link
+	files=$(find "$repo_dir" -type f | grep -v -e ".git" -e "md" -e "setup" | sed "s|${repo_dir}|${HOME}|")
+	echo "$files" | fzf | xargs -r $EDITOR
 }
 
 uni() {
-    open $(du -a $HOME/Universidade | awk '{print $2}' | fzf)
+    open $(du -a --exclude=.git $HOME/Universidade | awk "{print $2}" | fzf)
 }
 
 proj() {
-    open $(du -a --max-depth=1 $HOME/Projects | awk '{print $2}' | fzf)
+    open $(du -a --max-depth=1 $HOME/Projects | awk "{print $2}" | fzf)
 }
