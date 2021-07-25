@@ -15,9 +15,9 @@ mute=$(pulsemixer --get-mute)
 
 # Buttons
 case "$BUTTON" in
-	1) volume-change mute ;;
+	1) volctl mute ;;
 	2) "$TERMINAL" -e "$EDITOR" "$0" ;;
 	3) "$TERMINAL" -e pulsemixer ;;
-	4) volume-change +5 ;;
-	5) volume-change -5 ;;
+	4) volctl +5 ;;
+	5) volctl -5 ;;
 esac

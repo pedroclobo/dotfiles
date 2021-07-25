@@ -8,6 +8,6 @@ echo "💡 "$brightness"%"
 # Buttons
 case "$BUTTON" in
 	2) "$TERMINAL" -e "$EDITOR" "$0" ;;
-	4) brightness-change +5 ;;
-	5) brightness-change -5 ;;
+	4) brictl +5 ;;
+	5) brictl -5 ;;
 esac
