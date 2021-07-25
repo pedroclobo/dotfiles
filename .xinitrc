@@ -4,7 +4,6 @@
 monitors &&
 
 setxkbmap pt &              # Set keyboard layout
-xrdb .Xresources            # Update Xresources
 nitrogen --restore &        # Set wallpaper
 dwmblocks &                 # DWM bar
 xset s off -dpms            # Disable screen timeout
