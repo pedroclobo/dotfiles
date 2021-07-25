@@ -7,6 +7,11 @@ repo_dir="$HOME/Projects/dotfiles"
 files=$(find "$repo_dir" -type f | grep -v -e ".git" -e "md" -e "setup")
 
 
+# String colors
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+
 # Return the link path
 get_link() {
 	link=$(echo "$1" | sed "s|${repo_dir}||")
@@ -35,5 +40,9 @@ do
 	link=$(get_link "$file")
 	dir=$(get_parent_dir "$link")
 	! dir_exists "$dir" && mkdir -p "$dir"
-	! link_exists "$link" && ln -s -f "$file" "$link"
+	! link_exists "$link" && ln -s -f "$file" "$link" && 
+		printf "${GREEN}Created %s link!\n${NC}" "$link" ||
+		printf "%s is already linked!\n" "$link"
 done
+
+printf "\n${GREEN}All files linked!${NC}"
