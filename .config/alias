@@ -11,20 +11,32 @@ alias cp="cp -v"
 alias grep="grep --color=auto"
 
 
-# Main way of editing configuration files
-ed() {
-	# Dotfiles repository path
-	repo_dir="$HOME/Projects/dotfiles"
+# Fuzzy find configuration files
+cf() {
+	files=$(find "$HOME/Projects/dotfiles" \
+                 "$HOME/.config/dwm" \
+                 "$HOME/.config/dwmblocks" \
+                 "$HOME/.config/dmenu" \
+                 "$HOME/.config/nvim" \
+                  -not -path "*/\.git*")
 
-	# List of all files to link
-	files=$(find "$repo_dir" -type f | grep -v -e ".git" -e "md" -e "setup" | sed "s|${repo_dir}|${HOME}|")
-	echo "$files" | fzf | xargs -r $EDITOR
+	selected=$(echo "$files" | fzf)
+	[ "$selected" = "" ] && exit
+	[ -d "$selected" ] && cd "$selected" || open "$selected"
 }
 
+# Fuzzy find university directory
 uni() {
-    open $(du -a --exclude=.git $HOME/Universidade | awk "{print $2}" | fzf)
+	files=$(find "$HOME/Universidade" -not -path "*/\.git*")
+	selected=$(echo "$files" | fzf)
+	[ "$selected" = "" ] && exit
+	[ -d "$selected" ] && cd "$selected" || open "$selected"
 }
 
+# Fuzzy find projects directory
 proj() {
-    open $(du -a --max-depth=1 $HOME/Projects | awk "{print $2}" | fzf)
+	files=$(find "$HOME/Projects" -not -path "*/\.git*")
+	selected=$(echo "$files" | fzf)
+	[ "$selected" = "" ] && exit
+	[ -d "$selected" ] && cd "$selected" || open "$selected"
 }
