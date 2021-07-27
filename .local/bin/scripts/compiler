@@ -11,5 +11,5 @@ ext="${file##*.}"
 cd "$dir" || exit
 
 case "$ext" in
-    c) gcc "$CFLAGS" "$file" -o "$filename" ;;
+    c) gcc $CFLAGS "$file" -o "$filename" ;;
 esac
