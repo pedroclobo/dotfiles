@@ -1,10 +1,7 @@
 #!/bin/sh
 
-# Git repo directory
-repo_dir="$HOME/Projects/dotfiles"
-
 # List of all files to link
-files=$(find "$repo_dir" -type f | grep -v -e ".git" -e "md" -e "setup")
+files=$(find "$(pwd)" -type f | grep -v -e ".git" -e "md" -e "setup")
 
 
 # String colors
@@ -14,7 +11,7 @@ NC='\033[0m'
 
 # Return the link path
 get_link() {
-	link=$(echo "$1" | sed "s|${repo_dir}||")
+	link=$(echo "$1" | sed "s|$(pwd)||")
 	echo "$HOME""$link"
 }
 
@@ -40,7 +37,7 @@ do
 	link=$(get_link "$file")
 	dir=$(get_parent_dir "$link")
 	! dir_exists "$dir" && mkdir -p "$dir"
-	! link_exists "$link" && ln -s -f "$file" "$link" && 
+	! link_exists "$link" && ln -s -f "$file" "$link" &&
 		printf "${GREEN}Created %s link!\n${NC}" "$link" ||
 		printf "%s is already linked!\n" "$link"
 done
