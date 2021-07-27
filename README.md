@@ -1,12 +1,11 @@
 # Dotfiles
-Dotfiles are the hidden files, those which start with a ".". These are also know as configuration files. So, in this repo, I store and automate the deployment of my dotfiles.
-This includes:
-- Xorg configuration files
-- Status Bar scripts
-- Various automation scripts
+This is the git repository I use to manage my dotfiles.
 
-# Installation
+## Deploy my dotfiles
+In order to deploy my dotfiles, I use a script that creates a link for every file, so I can keep track of file version through one simple git repository. <br>
+To deploy the dotfiles just run the following commands:
 ```sh
-git clone https://github.com/pclobo199115/dotfiles
+git clone https://github.com/pedroclobo/dotfiles
+cd dotfiles
 ./setup.sh
 ```
