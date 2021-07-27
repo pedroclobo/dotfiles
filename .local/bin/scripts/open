@@ -1,7 +1,7 @@
 #!/bin/sh
-# This script will open the input file or change directories depending on the input.
+# Script to open files based on their extension
 
-### Default apps
+# Defaults
 PDF="zathura"
 IMAGE="sxiv"
 VIDEO="mpv"
@@ -10,12 +10,12 @@ file=$(readlink -f "$1")
 ext="${file##*.}"
 
 open_file() {
-    case "$ext" in
-        pdf) $PDF "$file";;
-        jpg|png) $IMAGE "$file";;
-        mp4|mkv) $VIDEO "$file";;
-        py|c|txt) $EDITOR "$file";;
-    esac
+	case "$ext" in
+		pdf) "$PDF" "$file" ;;
+		jpg|png) "$IMAGE" "$file" ;;
+		mp4|mkv) "$VIDEO" "$file" ;;
+		*) "$EDITOR" "$file" ;;
+	esac
 }
 
-[ -f "${file}" ] && open_file || cd "$file" && $SHELL
+open_file "$file"
