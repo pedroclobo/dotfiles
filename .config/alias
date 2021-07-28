@@ -21,7 +21,7 @@ cf() {
                   -not -path "*/\.git*")
 
 	selected=$(echo "$files" | fzf)
-	[ "$selected" = "" ] && exit
+	[ "$selected" = "" ] && return
 	[ -d "$selected" ] && cd "$selected" || open "$selected"
 }
 
@@ -29,7 +29,7 @@ cf() {
 uni() {
 	files=$(find "$HOME/Universidade" -not -path "*/\.git*")
 	selected=$(echo "$files" | fzf)
-	[ "$selected" = "" ] && exit
+	[ "$selected" = "" ] && return
 	[ -d "$selected" ] && cd "$selected" || open "$selected"
 }
 
@@ -37,6 +37,6 @@ uni() {
 proj() {
 	files=$(find "$HOME/Projects" -not -path "*/\.git*")
 	selected=$(echo "$files" | fzf)
-	[ "$selected" = "" ] && exit
+	[ "$selected" = "" ] && return
 	[ -d "$selected" ] && cd "$selected" || open "$selected"
 }
