@@ -1,14 +1,15 @@
 #!/bin/sh
+# Run files, based on their type
 
+# File information
 file=$(readlink -f "$1")
 dir=${file%/*}
 filename="${file%.*}"
 ext="${file##*.}"
 
 cd "$dir" || exit
-
 case "$ext" in
-    py) python $file ;;
-    c) $filename ;;
-	java) java "$file" ;;
+	py) python $file ;;
+	c) $filename ;;
+	java) java "$filename" ;;
 esac
