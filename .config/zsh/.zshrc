@@ -1,9 +1,20 @@
 #!/bin/zsh
 
-# Enable Colors and Prompt
-autoload -U promptinit
-promptinit
-prompt pure
+# Load Colors
+autoload -U colors && colors
+
+# Prompt
+git_prompt() {
+    branch="$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3)"
+    branch_truncated="${branch:0:30}"
+    if (( ${#branch} > ${#branch_truncated} )); then
+        branch="${branch_truncated}..."
+    fi
+
+    [ -n "${branch}" ] && echo " (${branch})"
+}
+setopt PROMPT_SUBST
+PROMPT='%B%{$fg[blue]%}%n@%M %~%{$fg[yellow]%}$(git_prompt)%{$reset_color%} %(?.$.%{$fg[red]%}$)%b '
 
 # Autocd
 setopt autocd
