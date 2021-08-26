@@ -1,17 +1,5 @@
 #!/bin/sh
-
-volume=$(pulsemixer --get-volume | sed 's/\s.*$//')
-mute=$(pulsemixer --get-mute)
-
-# Icons and labels
-[ "$mute" = 0 ] && [ "$volume" = 0 ] && icon="🔈"
-[ "$mute" = 0 ] && [ "$volume" -gt 0 ] && [ "$volume" -lt 50 ] && icon="🔉 "
-[ "$mute" = 0 ] && [ "$volume" -ge 50 ] && icon="🔊 "
-[ "$mute" = 1 ] && icon="🔈" &&	label="MUTED"
-
-
-# Output
-[ "$mute" = 0 ] && echo " $icon$volume%" || echo "$icon$label"
+# Status bar volume script
 
 # Buttons
 case "$BUTTON" in
@@ -21,3 +9,24 @@ case "$BUTTON" in
 	4) volctl +5 ;;
 	5) volctl -5 ;;
 esac
+
+# Get volume level and mute variable
+volume=$(pulsemixer --get-volume | sed 's/\s.*$//')
+mute=$(pulsemixer --get-mute)
+
+# Icons and labels
+if [ "$mute" = 0 ]; then
+	if [ "$volume" = 0 ]; then
+		icon="🔈"
+	elif [ "$volume" -gt 0 ] && [ "$volume" -lt 50 ]; then
+		icon="🔉"
+	elif [ "$volume" -ge 50 ]; then
+		icon="🔊"
+	fi
+elif [ "$mute" = 1 ]; then
+	icon="🔈"
+	label="MUTED"
+fi
+
+# Output
+[ "$mute" = 0 ] && echo " $icon $volume%" || echo " $icon $label"
