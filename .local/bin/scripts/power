@@ -1,9 +1,11 @@
 #!/bin/sh
+# Perform various power managment actions
 
 choice=$(printf "Shutdown\nReboot\nHibernate\nSuspend" | dmenu -i -p 'What to do? ')
+
 case $choice in
 	Shutdown) systemctl poweroff ;;
-    Reboot) systemctl reboot ;;
+	Reboot) systemctl reboot ;;
 	Hibernate) systemctl hibernate ;;
 	Suspend) systemctl suspend ;;
 	*) ;;
