@@ -1,15 +1,17 @@
 #!/bin/sh
+# Compile files, based on their type
 
 # C Flags
 CFLAGS="-ansi -pedantic -Wall -Wextra -Werror -g"
 
+# File information
 file=$(readlink -f "$1")
 dir=${file%/*}
 filename="${file%.*}"
 ext="${file##*.}"
 
 cd "$dir" || exit
-
 case "$ext" in
     c) gcc $CFLAGS "$file" -o "$filename" ;;
+	java) javac "$file" ;;
 esac
