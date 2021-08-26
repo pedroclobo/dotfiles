@@ -1,21 +1,23 @@
 #!/bin/sh
+# Control the brightness level
 
-# Signals dwmblocks for a module update
+# Signal dwmblocks for a module update
 update_bar() {
 	pkill -RTMIN+2 dwmblocks
 }
 
+# Lower the brightness by the value passed
 lower_brightness() {
 	light -U "$1"
 }
 
+# Raise the brightness by the value passed
 raise_brightness() {
 	light -A "$1"
 }
 
-
 case "$1" in
-	"-"[0-9]*) lower_brightness "$1" ;;
-	"+"[0-9]*) raise_brightness "$1" ;;
+	"-"[0-9]*) lower_brightness "$1" ; update_bar ;;
+	"+"[0-9]*) raise_brightness "$1" ; update_bar ;;
 	*) echo "Invalid input!" ;;
 esac

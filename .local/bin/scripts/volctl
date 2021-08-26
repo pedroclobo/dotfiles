@@ -1,23 +1,23 @@
 #!/bin/sh
 # Control the volume level
 
-# Signals dwmblocks for a module update
+# Signal dwmblocks for a module update
 update_bar() {
 	pkill -RTMIN+1 dwmblocks
 }
 
-# Change the volume by the number passed (can take negatives)
+# Change the volume by the value passed
 change_volume() {
-	pulsemixer --change-volume "$1"; update_bar
+	pulsemixer --change-volume "$1"
 }
 
 # Toggle mute
 toggle_mute() {
-	pulsemixer --toggle-mute; update_bar
+	pulsemixer --toggle-mute
 }
 
 case "$1" in
-	"mute") toggle_mute ;;
-	"-"[0-9]*|"+"[0-9]*) change_volume "$1" ;;
+	"mute") toggle_mute ; update_bar ;;
+	"-"[0-9]*|"+"[0-9]*) change_volume "$1" ; update_bar ;;
 	*) echo "Invalid input!" ;;
 esac
