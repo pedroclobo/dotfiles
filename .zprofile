@@ -5,7 +5,7 @@ export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 
 # Default programs:
 export FILE="nautilus"
-export BROWSER="brave"
+export BROWSER="firefox"
 export TERMINAL="alacritty"
 export EDITOR="nvim"
 
