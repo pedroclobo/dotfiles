@@ -1,18 +1,20 @@
 #!/bin/sh
+# Control the volume level
 
 # Signals dwmblocks for a module update
 update_bar() {
 	pkill -RTMIN+1 dwmblocks
 }
 
+# Change the volume by the number passed (can take negatives)
 change_volume() {
 	pulsemixer --change-volume "$1"; update_bar
 }
 
+# Toggle mute
 toggle_mute() {
 	pulsemixer --toggle-mute; update_bar
 }
-
 
 case "$1" in
 	"mute") toggle_mute ;;
