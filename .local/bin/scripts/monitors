@@ -1,4 +1,9 @@
 #!/bin/sh
-# If a external display is detected, enable it and disable the other displays.
+# Enable external display if any, and disable all other displays
 
-xrandr --output eDP1 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+# Display names
+INTERNAL_DISPLAY="LVDS1"
+EXTERNAL_DISPLAY="HDMI1"
+
+xrandr --output "$INTERNAL_DISPLAY" --off \
+	   --output "$EXTERNAL_DISPLAY" --primary --mode 1920x1080
