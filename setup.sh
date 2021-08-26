@@ -42,4 +42,4 @@ do
 		printf "%s is already linked!\n" "$link"
 done
 
-printf "\n${GREEN}All files linked!${NC}"
+printf "\n${GREEN}All files linked!${NC}\n"
