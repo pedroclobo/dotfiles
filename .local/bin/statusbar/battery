@@ -1,14 +1,17 @@
 #!/bin/sh
-
-status=$(cat /sys/class/power_supply/BAT1/status)
-capacity=$(cat /sys/class/power_supply/BAT1/capacity)
-
-[ "$status" = "Discharging" ] && icon="🔋" || icon="⚡"
-
-# Output
-echo "$icon" "$capacity"%
+# Status bar battery script
 
 # Buttons
 case "$BUTTON" in
 	2) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
+
+# Get battery status and capacity level
+status=$(cat /sys/class/power_supply/BAT0/status)
+capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+
+# Icons and labels
+[ "$status" = "Discharging" ] && icon="🔋" || icon="⚡"
+
+# Output
+echo "$icon" "$capacity"%
