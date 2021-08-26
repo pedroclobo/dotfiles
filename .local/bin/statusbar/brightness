@@ -1,9 +1,5 @@
 #!/bin/sh
-
-brightness=$(light | sed "s/\...//g")
-
-# Output
-echo "💡 "$brightness"%"
+# Status bar brightness script
 
 # Buttons
 case "$BUTTON" in
@@ -11,3 +7,9 @@ case "$BUTTON" in
 	4) brictl +5 ;;
 	5) brictl -5 ;;
 esac
+
+# Get brightness level
+brightness=$(light | sed "s/\...//g")
+
+# Output
+echo "💡 "$brightness"%"
