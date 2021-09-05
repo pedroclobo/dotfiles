@@ -1,0 +1,10 @@
+#!/bin/sh
+# Wrapper script for youtube-dl to download audio and videos
+
+while getopts ":a:v" flag; do
+	case "$flag" in
+		a) youtube-dl -o '%(title)s.%(ext)s' -f bestaudio[ext=m4a] --embed-thumbnail --add-metadata "$2" ;;
+		v) youtube-dl -o '%(title)s.%(ext)s' -f best "$2" ;;
+		*) exit 1 ;;
+	esac
+done
