@@ -22,4 +22,3 @@ vim.api.nvim_buf_set_keymap(0, "n", "<leader>vsh", ":lua vim.lsp.buf.signature_h
 vim.api.nvim_buf_set_keymap(0, "n", "<leader>vh", ":lua vim.lsp.buf.hover()<CR>", { silent = true })
 vim.api.nvim_buf_set_keymap(0, "n", "<leader>vr", ":lua vim.lsp.buf.references()<CR>", { silent = true })
 vim.api.nvim_buf_set_keymap(0, "n", "<leader>gd", ":lua vim.lsp.buf.definition()<CR>", { silent = true })
-vim.api.nvim_buf_set_keymap(0, "n", "<leader>r", ":lua vim.lsp.buf.rename()<CR>", { silent = true })
