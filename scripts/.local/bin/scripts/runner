@@ -10,6 +10,6 @@ ext="${file##*.}"
 cd "$dir" || exit
 case "$ext" in
 	py) python $file ;;
-	c) $filename ;;
+	c|cpp) $filename ;;
 	java) java "$filename" ;;
 esac

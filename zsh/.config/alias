@@ -13,11 +13,7 @@ alias grep="grep --color=auto"
 
 # Fuzzy find configuration files
 cf() {
-	files=$(find "$HOME/Projects/dotfiles" \
-                 "$HOME/.config/dwm" \
-                 "$HOME/.config/dwmblocks" \
-                 "$HOME/.config/dmenu" \
-                 "$HOME/.config/nvim" \
+	files=$(find "$HOME/repos/dotfiles" \
                   -not -path "*/\.git*")
 
 	selected=$(echo "$files" | fzf)
@@ -27,15 +23,15 @@ cf() {
 
 # Fuzzy find university directory
 uni() {
-	files=$(find "$HOME/Universidade" -not -path "*/\.git*")
+	files=$(find "$HOME/uni" -not -path "*/\.git*")
 	selected=$(echo "$files" | fzf)
 	[ "$selected" = "" ] && return
 	[ -d "$selected" ] && cd "$selected" || open "$selected"
 }
 
-# Fuzzy find projects directory
+# Fuzzy find repositories directory
 proj() {
-	files=$(find "$HOME/Projects" -not -path "*/\.git*")
+	files=$(find "$HOME/repos" -not -path "*/\.git*")
 	selected=$(echo "$files" | fzf)
 	[ "$selected" = "" ] && return
 	[ -d "$selected" ] && cd "$selected" || open "$selected"

@@ -2,7 +2,7 @@
 # Compile files, based on their type
 
 # C Flags
-CFLAGS="-ansi -pedantic -Wall -Wextra -Werror -g"
+CFLAGS="-g"
 
 # File information
 file=$(readlink -f "$1")
@@ -12,6 +12,7 @@ ext="${file##*.}"
 
 cd "$dir" || exit
 case "$ext" in
-    c) gcc $CFLAGS "$file" -o "$filename" ;;
+	c) gcc $CFLAGS "$file" -o "$filename" ;;
+	cpp) g++ $CFLAGS "$file" -o "$filename" ;;
 	java) javac "$file" ;;
 esac
