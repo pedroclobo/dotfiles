@@ -6,4 +6,5 @@ date "+  %d-%b-%Y - %R "
 # Buttons
 case "$BUTTON" in
 	2) "$TERMINAL" -e "$EDITOR" "$0" ;;
+	3) "$TERMINAL" -e calcurse ;;
 esac
