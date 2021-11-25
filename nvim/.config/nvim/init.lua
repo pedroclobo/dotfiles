@@ -8,4 +8,6 @@ require "pedro/settings"
 require "plugin/lsp"
 
 -- Plugins
+require "plugin/completion"
 require "plugin/telescope"
+require "plugin/autopairs"

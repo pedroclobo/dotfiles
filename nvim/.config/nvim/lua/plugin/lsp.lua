@@ -1,3 +1,4 @@
+local api = vim.api
 local lsp_installer = require "nvim-lsp-installer"
 
 -- Call all installed servers
@@ -18,7 +19,7 @@ lsp_installer.settings({
 })
 
 -- Keymaps
-vim.api.nvim_buf_set_keymap(0, "n", "<leader>vsh", ":lua vim.lsp.buf.signature_help()<CR>", { silent = true })
-vim.api.nvim_buf_set_keymap(0, "n", "<leader>vh", ":lua vim.lsp.buf.hover()<CR>", { silent = true })
-vim.api.nvim_buf_set_keymap(0, "n", "<leader>vr", ":lua vim.lsp.buf.references()<CR>", { silent = true })
-vim.api.nvim_buf_set_keymap(0, "n", "<leader>gd", ":lua vim.lsp.buf.definition()<CR>", { silent = true })
+api.nvim_buf_set_keymap(0, "n", "<leader>vsh", ":lua vim.lsp.buf.signature_help()<CR>", { silent = true })
+api.nvim_buf_set_keymap(0, "n", "<leader>vh", ":lua vim.lsp.buf.hover()<CR>", { silent = true })
+api.nvim_buf_set_keymap(0, "n", "<leader>vr", ":lua vim.lsp.buf.references()<CR>", { silent = true })
+api.nvim_buf_set_keymap(0, "n", "<leader>gd", ":lua vim.lsp.buf.definition()<CR>", { silent = true })
