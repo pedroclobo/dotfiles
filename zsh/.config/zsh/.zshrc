@@ -38,7 +38,7 @@ setopt hist_ignore_space
 # Basic Auto/Tab complete:
 autoload -U compinit
 zstyle ":completion:*:descriptions" format "%U%B%d%b%u"
-compinit
+compinit -d "$HOME/.cache/zsh/zcompdump"
 _comp_options+=(globdots)
 
 # vi Mode
