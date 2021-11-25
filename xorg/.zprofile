@@ -5,7 +5,7 @@ export PATH="$PATH:$(find "$HOME/.local/bin" | paste -sd ':')"
 
 # Default programs:
 export FILE="pcmanfm"
-export BROWSER="firefox"
+export BROWSER="brave --enable-features=VaapiVideoDecoder"
 export TERMINAL="alacritty"
 export EDITOR="nvim"
 
