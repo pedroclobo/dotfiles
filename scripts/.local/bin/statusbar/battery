@@ -11,7 +11,31 @@ status=$(cat /sys/class/power_supply/BAT0/status)
 capacity=$(cat /sys/class/power_supply/BAT0/capacity)
 
 # Icons and labels
-[ "$status" = "Discharging" ] && icon="🔋" || icon="⚡"
+if [ "$status" = "Discharging" ]; then
+	if [ "$capacity" -le 10 ]; then
+		icon=""
+	elif [ "$capacity" -gt 10 ] && [ "$capacity" -lt 20 ]; then
+		icon=""
+	elif [ "$capacity" -ge 20 ] && [ "$capacity" -lt 30 ]; then
+		icon=""
+	elif [ "$capacity" -ge 30 ] && [ "$capacity" -lt 40 ]; then
+		icon=""
+	elif [ "$capacity" -ge 40 ] && [ "$capacity" -lt 50 ]; then
+		icon=""
+	elif [ "$capacity" -ge 50 ] && [ "$capacity" -lt 60 ]; then
+		icon=""
+	elif [ "$capacity" -ge 60 ] && [ "$capacity" -lt 70 ]; then
+		icon=""
+	elif [ "$capacity" -ge 70 ] && [ "$capacity" -lt 80 ]; then
+		icon=""
+	elif [ "$capacity" -ge 80 ] && [ "$capacity" -lt 90 ]; then
+		icon=""
+	elif [ "$capacity" -ge 90 ] && [ "$capacity" -lt 100 ]; then
+		icon=""
+	fi
+else
+	icon=""
+fi
 
 # Output
 echo "$icon" "$capacity"%

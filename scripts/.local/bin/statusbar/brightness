@@ -11,5 +11,8 @@ esac
 # Get brightness level
 brightness=$(light | sed "s/\...//g")
 
+# Icons and labels
+icon="ﯦ "
+
 # Output
-echo "💡 "$brightness"%"
+echo "$icon" $brightness"%"

@@ -17,14 +17,16 @@ mute=$(pulsemixer --get-mute)
 # Icons and labels
 if [ "$mute" = 0 ]; then
 	if [ "$volume" = 0 ]; then
-		icon="🔈"
+		icon=" "
 	elif [ "$volume" -gt 0 ] && [ "$volume" -lt 50 ]; then
-		icon="🔉"
-	elif [ "$volume" -ge 50 ]; then
-		icon="🔊"
+		icon=" "
+	elif [ "$volume" -ge 50 ] && [ "$volume" -lt 75 ]; then
+		icon="墳 "
+	elif [ "$volume" -ge 75 ]; then
+		icon=" "
 	fi
 elif [ "$mute" = 1 ]; then
-	icon="🔈"
+	icon="ﱝ "
 	label="MUTED"
 fi
 
