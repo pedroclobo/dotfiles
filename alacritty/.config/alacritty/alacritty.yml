@@ -7,9 +7,9 @@ window:
 # Fonts
 font:
   normal:
-    family: "Fira Code"
-    style: Retina
-  size: 10.0
+    family: "UbuntuMono Nerd Font"
+    style: Regular
+  size: 12
 
 background_opacity: 0.85
 colors:
