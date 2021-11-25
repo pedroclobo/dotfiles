@@ -7,3 +7,6 @@
 [submodule "dmenu"]
 	path = suckless/.config/dmenu
 	url = https://github.com/pedroclobo/dmenu.git
+[submodule "suckless/.config/slock"]
+	path = suckless/.config/slock
+	url = git@github.com:pedroclobo/slock.git
