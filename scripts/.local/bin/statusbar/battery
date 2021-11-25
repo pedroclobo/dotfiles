@@ -30,7 +30,7 @@ if [ "$status" = "Discharging" ]; then
 		icon=""
 	elif [ "$capacity" -ge 80 ] && [ "$capacity" -lt 90 ]; then
 		icon=""
-	elif [ "$capacity" -ge 90 ] && [ "$capacity" -lt 100 ]; then
+	elif [ "$capacity" -ge 90 ] && [ "$capacity" -le 100 ]; then
 		icon=""
 	fi
 else
