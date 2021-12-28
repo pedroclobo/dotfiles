@@ -1,12 +1,16 @@
 [submodule "suckless/.config/dwm"]
 	path = suckless/.config/dwm
 	url = https://github.com/pedroclobo/dwm
+	ignore = all
 [submodule "suckless/.config/dwmblocks"]
 	path = suckless/.config/dwmblocks
 	url = https://github.com/pedroclobo/dwmblocks
+	ignore = all
 [submodule "suckless/.config/dmenu"]
 	path = suckless/.config/dmenu
 	url = https://github.com/pedroclobo/dmenu
+	ignore = all
 [submodule "suckless/.config/slock"]
 	path = suckless/.config/slock
 	url = https://github.com/pedroclobo/slock
+	ignore = all
