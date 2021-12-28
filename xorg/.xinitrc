@@ -3,7 +3,9 @@
 # Connect to external monitor if available
 monitors &
 
-setxkbmap pt &              # Set keyboard layout
+# Set keyboard layout and remap caps to escape
+setxkbmap pt -option "caps:escape" &
+
 nitrogen --restore &        # Set wallpaper
 dwmblocks &                 # DWM bar
 xset s off -dpms &          # Disable screen timeout
