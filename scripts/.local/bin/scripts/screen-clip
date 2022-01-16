@@ -1,7 +1,7 @@
 #!/bin/sh
 # Takes a screenshot and saves it to the clipboard.
 
-type=$(printf "Full screen\nCurrent window\nSelected area" | dmenu -i -p 'What type of screenshot? ')
+type=$(printf "Full screen\nCurrent window\nSelected area" | dmenu -i -p 'Save to clipboard: ')
 
 case $type in
     "Full screen") maim | xclip -selection clipboard -t image/png ;;
