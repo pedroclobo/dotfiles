@@ -8,6 +8,7 @@ opt.autoindent = true                       -- copy indent from current line on 
 opt.clipboard = "unnamedplus"               -- use system clipboard for all operations
 opt.colorcolumn = "80"                      -- draw a column at the specified char value
 opt.completeopt = "menu,menuone,noselect"   -- insert mode completion
+opt.cursorline = true                       -- highlight the text line of the cursor
 opt.encoding = "utf-8"                      -- encoding for RPC communication
 opt.expandtab = false                       -- use tabs instead of spaces
 opt.fileencoding = "utf-8"                  -- file-content encoding for current buffer
