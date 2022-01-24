@@ -1,5 +1,6 @@
 # Window
 window:
+  opacity: 0.85
   padding:
     x: 10
     y: 10
@@ -11,7 +12,6 @@ font:
     style: Regular
   size: 12
 
-background_opacity: 0.85
 colors:
   primary:
     background: '#2e3440'
