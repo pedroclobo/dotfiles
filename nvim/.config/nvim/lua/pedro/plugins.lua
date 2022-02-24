@@ -1,36 +1,75 @@
 local fn = vim.fn
+local cmd = vim.cmd
 
--- Automatically install paq
-local install_path = fn.stdpath("data") .. "/site/pack/paqs/start/paq-nvim"
+-- Automatically install packer
+local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-	fn.system({"git", "clone", "--depth=1", "https://github.com/savq/paq-nvim.git", install_path})
+	PACKER_BOOTSTRAP = fn.system {
+		"git",
+		"clone",
+		"--depth",
+		"1",
+		"https://github.com/wbthomason/packer.nvim",
+		install_path,
+	}
+	cmd [[packadd packer.nvim]]
 end
 
+-- Reload neovim whenever plugins.lua is written
+cmd [[
+	augroup packer_user_config
+		autocmd!
+		autocmd BufWritePost plugins.lua source <afile> | PackerSync
+	augroup end
+]]
+
+-- Use a protected call to prevent errors
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+	return
+end
+
+-- Use a popup window for packer
+packer.init {
+	display = {
+		open_fn = function()
+			return require("packer.util").float { border = "rounded" }
+		end,
+	},
+}
+
 -- Plugins
-require "paq" {
+return packer.startup(function(use)
 
 	-- General
-	"savq/paq-nvim";
-	"shaunsingh/nord.nvim";
+	use "wbthomason/packer.nvim"
+	use "nvim-lua/popup.nvim"
+	use "nvim-lua/plenary.nvim"
+	use "shaunsingh/nord.nvim"
 
 	-- LSP
-	"neovim/nvim-lspconfig";
-	"williamboman/nvim-lsp-installer";
+	use "neovim/nvim-lspconfig"
+	use "williamboman/nvim-lsp-installer"
 
 	-- Completion
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-nvim-lua",
-	"hrsh7th/cmp-buffer",
-	"hrsh7th/cmp-path",
-	"hrsh7th/nvim-cmp",
-	"onsails/lspkind-nvim",
-	"L3MON4D3/LuaSnip",
+	use "hrsh7th/nvim-cmp"
+	use "hrsh7th/cmp-nvim-lsp"
+	use "hrsh7th/cmp-nvim-lua"
+	use "hrsh7th/cmp-buffer"
+	use "hrsh7th/cmp-path"
+	use "onsails/lspkind-nvim"
+	use "L3MON4D3/LuaSnip"
 
 	-- Telescope
-	"nvim-lua/plenary.nvim";
-	"nvim-telescope/telescope.nvim";
+	use	"nvim-lua/plenary.nvim"
+	use	"nvim-telescope/telescope.nvim"
 
 	-- Misc
-	"windwp/nvim-autopairs";
+	use "windwp/nvim-autopairs"
 
-}
+	-- Set up configuration after cloning packer.nvim
+	if PACKER_BOOTSTRAP then
+		require("packer").sync()
+	end
+
+end)

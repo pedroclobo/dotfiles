@@ -1,8 +1,9 @@
 -- Plugin Manager
 require "pedro/plugins"
 
--- General Settings
-require "pedro/settings"
+-- General Options
+require "pedro/options"
+require "pedro/keymaps"
 
 -- LSP
 require "plugin/lsp"
