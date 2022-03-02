@@ -9,7 +9,7 @@ require "pedro/keymaps"
 require "plugin/lsp"
 
 -- Plugins
-require "plugin/completion"
+require "plugin/cmp"
 require "plugin/telescope"
 require "plugin/autopairs"
 require "plugin/gitsigns"

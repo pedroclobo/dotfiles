@@ -1,6 +1,6 @@
 local status_ok, gitsigns = pcall(require, "gitsigns")
 if not status_ok then
-	print("gitsings is not installed!")
+	print("gitsings not installed!")
 	return
 end
 
