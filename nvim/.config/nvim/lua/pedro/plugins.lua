@@ -77,6 +77,8 @@ return packer.startup(function(use)
 	-- Misc
 	use "windwp/nvim-autopairs"
 	use "lewis6991/gitsigns.nvim"
+	use "kyazdani42/nvim-tree.lua"
+	use "kyazdani42/nvim-web-devicons"
 
 	-- Set up configuration after cloning packer.nvim
 	if PACKER_BOOTSTRAP then
