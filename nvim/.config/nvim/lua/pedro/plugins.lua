@@ -68,6 +68,12 @@ return packer.startup(function(use)
 	-- Telescope
 	use "nvim-telescope/telescope.nvim"
 
+	-- Treesitter
+	use {
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+	}
+
 	-- Misc
 	use "windwp/nvim-autopairs"
 	use "lewis6991/gitsigns.nvim"
