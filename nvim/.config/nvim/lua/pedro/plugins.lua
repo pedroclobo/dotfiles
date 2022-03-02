@@ -66,7 +66,6 @@ return packer.startup(function(use)
 	use "rafamadriz/friendly-snippets"
 
 	-- Telescope
-	use "nvim-lua/plenary.nvim"
 	use "nvim-telescope/telescope.nvim"
 
 	-- Misc
