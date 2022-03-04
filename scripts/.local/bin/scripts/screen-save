@@ -7,8 +7,8 @@ dir="$HOME/images/screenshot"
 type=$(printf "Full screen\nCurrent window\nSelected area" | dmenu -i -p 'Save to storage: ')
 
 case $type in
-    "Full screen") maim "$dir/""$(date '+%y%m%d-%H%M-%S').png" ;;
-    "Current window") maim -i "$(xdotool getactivewindow)" "$dir/""$(date '+%y%m%d-%H%M-%S').png" ;;
-    "Selected area") maim -s "$dir/""$(date '+%y%m%d-%H%M-%S').png" ;;
+	"Full screen") maim "$dir/""$(date '+%y%m%d-%H%M-%S').png" ;;
+	"Current window") maim -i "$(xdotool getactivewindow)" "$dir/""$(date '+%y%m%d-%H%M-%S').png" ;;
+	"Selected area") maim -s "$dir/""$(date '+%y%m%d-%H%M-%S').png" ;;
 	*) ;;
 esac
