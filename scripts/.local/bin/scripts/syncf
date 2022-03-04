@@ -1,0 +1,12 @@
+#!/bin/sh
+# Synchronize various files between computers
+
+DESTINATION="desktop"
+
+choice=$(printf "uni\nrepos" | fzf)
+
+case $choice in
+	uni) rsync -vr --delete ~/uni $DESTINATION: ;;
+	repos) rsync -vr --exclude "dotfiles" --delete ~/repos $DESTINATION: ;;
+	*) ;;
+esac
