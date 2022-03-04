@@ -1,7 +1,7 @@
 #!/bin/sh
 # Synchronize various files between computers
 
-DESTINATION="desktop"
+DESTINATION="arch"
 
 choice=$(printf "uni\nrepos" | fzf)
 
