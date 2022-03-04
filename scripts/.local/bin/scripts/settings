@@ -1,9 +1,0 @@
-#!/bin/sh
-# Acts as control panel.
-
-choice=$(echo "Bluetooth\nBackup" | dmenu -i -p 'What to do? ')
-
-case $choice in
-	Bluetooth) doas blueberry ;;
-	Backup) doas timeshift-gtk ;;
-esac
