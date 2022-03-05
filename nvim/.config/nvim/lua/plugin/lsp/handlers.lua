@@ -45,7 +45,13 @@ local function lsp_keymaps(bufnr)
 end
 
 -- on_attach function
-M.on_attach = function(bufnr)
+M.on_attach = function(client, bufnr)
+	if client.name == "rust_analyzer" then
+		client.resolved_capabilities.document_formatting = false
+	elseif client.name == "clangd" then
+		client.resolved_capabilities.document_formatting = false
+	end
+
 	lsp_keymaps(bufnr)
 end
 
