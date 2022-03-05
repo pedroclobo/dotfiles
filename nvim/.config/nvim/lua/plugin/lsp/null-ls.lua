@@ -13,6 +13,6 @@ null_ls.setup({
 		formatting.clang_format.with({ extra_args = { "--style", "{UseTab: ForIndentation, IndentWidth: 8}" } }),
 		formatting.rustfmt.with({ extra_args = { "--config", "hard_tabs=true" } }),
 		formatting.stylua,
-		formatting.yapf.with({ extra_args = { "-i", "use_tabs=True" } }),
+		formatting.yapf.with({ extra_args = { "--style", "{use_tabs: True}" } }),
 	},
 })
