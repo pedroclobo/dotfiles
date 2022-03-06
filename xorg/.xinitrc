@@ -13,9 +13,6 @@ unclutter &                 # Hide mouse cursor when inactive
 redshift &                  # Night light
 picom &                     # Compositor
 
-# Automatically lock after 5 minutes of inactivity
-xautolock -time 5 -locker slock -detectsleep &
-
 # dwm reload
 while true; do
 	dwm

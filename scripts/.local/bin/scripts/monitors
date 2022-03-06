@@ -2,8 +2,9 @@
 # Enable external display if any, and disable all other displays
 
 # Display names
-INTERNAL_DISPLAY="LVDS1"
+INTERNAL_DISPLAY="eDP1"
 EXTERNAL_DISPLAY="HDMI1"
 
 xrandr --output "$INTERNAL_DISPLAY" --off \
-	   --output "$EXTERNAL_DISPLAY" --primary --mode 1920x1080
+	   --output "$EXTERNAL_DISPLAY" --primary --mode 1920x1080 --pos 0x0 --rotate normal \
+	   --output VIRTUAL1 --off
