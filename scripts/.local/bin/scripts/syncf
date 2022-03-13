@@ -3,10 +3,11 @@
 
 DESTINATION="desktop"
 
-choice=$(printf "uni\nrepos" | fzf)
+choice=$(printf "uni\nrepos\ncalendar" | fzf)
 
 case $choice in
 	uni) rsync -vru --delete ~/uni $DESTINATION: ;;
 	repos) rsync -vru --exclude "dotfiles" --delete ~/repos $DESTINATION: ;;
+	calendar) rsync -vru --delete ~/.local/share/calcurse $DESTINATION:.local/share/calcurse ;;
 	*) ;;
 esac
