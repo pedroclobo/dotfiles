@@ -8,6 +8,7 @@ export FILE="pcmanfm"
 export BROWSER="brave --enable-features=VaapiVideoDecoder"
 export TERMINAL="alacritty"
 export EDITOR="nvim"
+export PDF_READER="zathura"
 
 # fzf
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
