@@ -27,6 +27,7 @@ keymap("v", ">", ">gv", opts)
 -- Scripts
 keymap("n", "<leader>c", ":!compiler % <CR>", {})
 keymap("n", "<leader>r", ":!runner % <CR>", {})
+keymap("n", "<leader>o", ":!opout % <CR>", {})
 
 -- Telescope
 keymap("n", "<leader>s", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>", opts)

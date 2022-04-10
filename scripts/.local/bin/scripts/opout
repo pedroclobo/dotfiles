@@ -1,0 +1,11 @@
+#!/bin/sh
+# Open output of compiled files
+
+file=$(readlink -f "$1")
+dir=${file%/*}
+filename="${file%.*}"
+ext="${file##*.}"
+
+case "$ext" in
+	tex|md|rmd) setsid -f "$PDF_READER" "$filename".pdf ;;
+esac
