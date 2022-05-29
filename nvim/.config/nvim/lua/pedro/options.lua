@@ -29,3 +29,5 @@ opt.writebackup = false                     -- don't make backup before overwrit
 -- Miscellaneous
 cmd [[autocmd BufWritePost * silent! %s/\s\+$//e]]   -- remove trailing white space on file write
 cmd [[colorscheme nord]]
+
+vim.api.nvim_exec([[ autocmd FileType python setlocal tabstop=4 noexpandtab ]], false)
