@@ -17,5 +17,7 @@ case "$ext" in
 	c) gcc $CFLAGS "$file" -o "$filename" ;;
 	cpp) g++ $CFLAGS "$file" -o "$filename" ;;
 	java) javac "$file" ;;
+	md) pandoc -o "$filename".pdf "$filename".md ;;
 	rmd) Rscript -e "rmarkdown::render('$file', 'pdf_document', quiet=TRUE)" ;;
+	tex) pdflatex "$filename" ;;
 esac
