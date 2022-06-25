@@ -86,6 +86,9 @@ telescope.setup({
 		live_grep = {
 			theme = "ivy",
 		},
+		git_files = {
+			theme = "ivy",
+		},
 	},
 	extensions = {},
 })
