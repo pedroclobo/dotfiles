@@ -1,17 +1,18 @@
 -- Plugin Manager
-require "pedro/plugins"
+require("pedro.plugins")
 
 -- General Options
-require "pedro/options"
-require "pedro/keymaps"
-require "pedro/colorscheme"
+require("pedro.colorscheme")
+require("pedro.keymaps")
+require("pedro.options")
 
 -- LSP
-require "plugin/lsp"
+require("plugin.lsp")
 
 -- Plugins
-require "plugin/cmp"
-require "plugin/telescope"
-require "plugin/autopairs"
-require "plugin/gitsigns"
-require "plugin/treesitter"
+require("plugin.autopairs")
+require("plugin.cmp")
+require("plugin.gitsigns")
+require("plugin.telescope")
+require("plugin.telescope")
+require("plugin.treesitter")
