@@ -1,7 +1,6 @@
--- Protected call to lspconfig
 local status_ok, _ = pcall(require, "lspconfig")
 if not status_ok then
-	print("lspconfig not installed!")
+	vim.notify("lspconfig is not installed!")
 	return
 end
 
