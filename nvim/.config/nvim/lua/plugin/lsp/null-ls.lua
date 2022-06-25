@@ -1,7 +1,6 @@
--- Protected call to null-ls
-local null_ls_status_ok, null_ls = pcall(require, "null-ls")
-if not null_ls_status_ok then
-	print("null-ls not installed!")
+local status_ok, null_ls = pcall(require, "null-ls")
+if not status_ok then
+	vim.notify("null-ls not installed!")
 	return
 end
 
