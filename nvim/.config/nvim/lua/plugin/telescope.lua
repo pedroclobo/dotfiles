@@ -5,9 +5,9 @@ if not status_ok then
 	return
 end
 
-local actions = require "telescope.actions"
+local actions = require("telescope.actions")
 
-telescope.setup {
+telescope.setup({
 	defaults = {
 
 		prompt_prefix = "  ",
@@ -80,7 +80,12 @@ telescope.setup {
 		},
 	},
 	pickers = {
+		find_files = {
+			theme = "ivy",
+		},
+		live_grep = {
+			theme = "ivy",
+		},
 	},
-	extensions = {
-	},
-}
+	extensions = {},
+})

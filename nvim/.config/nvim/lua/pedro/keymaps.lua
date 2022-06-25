@@ -1,9 +1,8 @@
-local g = vim.g
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 -- Leader Key
-g.mapleader = " "
+vim.g.mapleader = " "
 
 -- Window navegation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -30,10 +29,8 @@ keymap("n", "<leader>r", ":!runner % <CR>", {})
 keymap("n", "<leader>o", ":!opout % <CR>", {})
 
 -- Telescope
-keymap("n", "<leader>s", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>", opts)
-
--- Nvim-tree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>s", "<cmd>lua require'telescope.builtin'.find_files()<CR>", opts)
+keymap("n", "<leader>g", "<cmd>lua require'telescope.builtin'.live_grep()<CR>", opts)
 
 -- Format
 keymap("n", "<leader>f", ":lua vim.lsp.buf.formatting_sync()<CR>", opts)
