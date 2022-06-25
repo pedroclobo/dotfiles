@@ -4,6 +4,7 @@ require "pedro/plugins"
 -- General Options
 require "pedro/options"
 require "pedro/keymaps"
+require "pedro/colorscheme"
 
 -- LSP
 require "plugin/lsp"
