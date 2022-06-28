@@ -47,6 +47,7 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim")
 	use("ahmedkhalf/project.nvim")
 	use("goolord/alpha-nvim")
+	use("github/copilot.vim")
 
 	-- Colorschemes
 	use("shaunsingh/nord.nvim")
