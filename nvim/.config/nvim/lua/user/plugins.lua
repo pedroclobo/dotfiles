@@ -41,13 +41,12 @@ packer.init({
 
 -- Plugins
 return packer.startup(function(use)
-
 	-- General
 	use("wbthomason/packer.nvim")
 	use("nvim-lua/popup.nvim")
 	use("nvim-lua/plenary.nvim")
 	use("ahmedkhalf/project.nvim")
-	use("startup-nvim/startup.nvim")
+	use("goolord/alpha-nvim")
 
 	-- Colorschemes
 	use("shaunsingh/nord.nvim")

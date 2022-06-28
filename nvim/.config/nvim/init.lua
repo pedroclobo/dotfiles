@@ -10,11 +10,11 @@ require("user.options")
 require("user.lsp")
 
 -- Plugins
+require("user.alpha")
 require("user.autopairs")
 require("user.cmp")
 require("user.gitsigns")
 require("user.project")
-require("user.startup")
 require("user.telescope")
 require("user.telescope")
 require("user.treesitter")
