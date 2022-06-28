@@ -1,20 +1,20 @@
 -- Plugin Manager
-require("pedro.plugins")
+require("user.plugins")
 
 -- General Options
-require("pedro.colorscheme")
-require("pedro.keymaps")
-require("pedro.options")
+require("user.colorscheme")
+require("user.keymaps")
+require("user.options")
 
 -- LSP
-require("plugin.lsp")
+require("user.lsp")
 
 -- Plugins
-require("plugin.autopairs")
-require("plugin.cmp")
-require("plugin.gitsigns")
-require("plugin.project")
-require("plugin.startup")
-require("plugin.telescope")
-require("plugin.telescope")
-require("plugin.treesitter")
+require("user.autopairs")
+require("user.cmp")
+require("user.gitsigns")
+require("user.project")
+require("user.startup")
+require("user.telescope")
+require("user.telescope")
+require("user.treesitter")
