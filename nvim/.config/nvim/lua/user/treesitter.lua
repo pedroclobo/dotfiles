@@ -1,18 +1,22 @@
--- Protected call to treesitter
 local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
-	print("nvim-treesitter.configs not installed!")
+	vim.notify("Failed to load nvim-treesitter.configs!")
 	return
 end
 
-configs.setup {
+configs.setup({
 	ensure_installed = "all",
-	sync_install = false,
-	ignore_install = { "" },
 	highlight = {
 		enable = true,
-		disable = { "" },
-		additional_vim_regex_highlighting = true,
+		additional_vim_regex_highlighting = false,
 	},
-	indent = { enable = true, disable = { "" } },
-}
+	autotag = {
+		enable = true,
+	},
+	indent = {
+		enable = true,
+	},
+	rainbow = {
+		enable = true,
+	},
+})
