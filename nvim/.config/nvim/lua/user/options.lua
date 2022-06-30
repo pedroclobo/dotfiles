@@ -23,5 +23,3 @@ local options = {
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
-
-vim.cmd([[autocmd BufWritePost * silent! %s/\s\+$//e]])   -- remove trailing white space on file write
