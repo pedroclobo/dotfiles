@@ -1,5 +1,0 @@
-*clang-format*
-*yapf*
-nvim/.config/nvim/plugin/
-scripts/.local/lib/
-scripts/.local/share/
