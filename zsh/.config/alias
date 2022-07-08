@@ -28,15 +28,15 @@ cf() {
 
 # Fuzzy find university directory
 uni() {
-	files=$(find "$HOME/uni" -not -path "*/\.git*")
+	files=$(find "$HOME/uni" -not -path "*/\.git*" | sort)
 	selected=$(echo "$files" | fzf)
 	[ "$selected" = "" ] && return
 	[ -d "$selected" ] && cd "$selected" || open "$selected"
 }
 
 # Fuzzy find repositories directory
-proj() {
-	files=$(find "$HOME/repos" -not -path "*/\.git*")
+rep() {
+	files=$(find "$HOME/repos" -not -path "*/\.git*" | sort)
 	selected=$(echo "$files" | fzf)
 	[ "$selected" = "" ] && return
 	[ -d "$selected" ] && cd "$selected" || open "$selected"
