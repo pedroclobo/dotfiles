@@ -14,7 +14,12 @@ alias grep="grep --color=auto"
 # Fuzzy find configuration files
 cf() {
 	files=$(find "$HOME/repos/dotfiles" \
-                  -not -path "*/\.git*")
+	             "$HOME/.config/dmenu" \
+	             "$HOME/.config/dwm" \
+	             "$HOME/.config/nvim" \
+	             -not -path "*/\.git*" |
+	             sed "s/repos\/dotfiles\/[a-z]*\///" |
+	             sort -u)
 
 	selected=$(echo "$files" | fzf)
 	[ "$selected" = "" ] && return
