@@ -19,9 +19,6 @@ PROMPT='%B%{$fg[blue]%}%n@%M %~%{$fg[yellow]%}$(git_prompt)%{$reset_color%} %(?.
 # Autocd
 setopt autocd
 
-# Prevent file overwriting
-setopt noclobber
-
 # Globbing
 setopt extendedglob
 
