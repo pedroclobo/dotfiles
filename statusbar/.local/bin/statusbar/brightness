@@ -1,0 +1,21 @@
+#!/bin/sh
+# Status bar brightness script
+
+# Brightness device
+DEVICE=$(light -L | grep "ddcci" | xargs)
+
+# Buttons
+case "$BUTTON" in
+	2) "$TERMINAL" -e "$EDITOR" "$0" ;;
+	4) brictl +5 ;;
+	5) brictl -5 ;;
+esac
+
+# Get brightness level
+brightness=$(light -s "$DEVICE" | sed "s/\...//g")
+
+# Icons and labels
+icon="ﯦ "
+
+# Output
+echo "$icon" $brightness"%"
