@@ -13,13 +13,10 @@ unclutter &                 # Hide mouse cursor when inactive
 redshift &                  # Night light
 picom &                     # Compositor
 
+# Load Xresources
+[[ -f ~/.Xresources ]] && xrdb ~/.Xresources
+
 # dwm reload
 while true; do
 	dwm
 done
-
-# Load Xresources
-[[ -f ~/.Xresources ]] && xrdb ~/.Xresources
-
-# Start desktop
-exec dwm
