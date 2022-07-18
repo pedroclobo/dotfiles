@@ -6,3 +6,5 @@
 	gpgsign = true
 [tag]
 	gpgSign = true
+[alias]
+    graph = log --all --graph --decorate --oneline
