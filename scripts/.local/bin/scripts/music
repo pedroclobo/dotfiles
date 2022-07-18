@@ -1,0 +1,9 @@
+#!/bin/sh
+# Play music files
+
+artist=$(mpc ls | dmenu -i)
+
+[ "$artist" != "" ] &&
+	mpc clear &&
+	mpc add "$artist" &&
+	mpc play 
