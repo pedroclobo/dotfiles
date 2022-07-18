@@ -6,4 +6,5 @@ artist=$(mpc ls | dmenu -i)
 [ "$artist" != "" ] &&
 	mpc clear &&
 	mpc add "$artist" &&
-	mpc play 
+	mpc shuffle &&
+	mpc play
