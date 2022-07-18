@@ -18,5 +18,8 @@ while true; do
 	dwm
 done
 
+# Load Xresources
+[[ -f ~/.Xresources ]] && xrdb ~/.Xresources
+
 # Start desktop
 exec dwm
