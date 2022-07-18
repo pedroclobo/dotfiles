@@ -16,13 +16,10 @@ picom &                     # Compositor
 # Automatically lock after 5 minutes of inactivity
 xautolock -time 5 -locker slock -detectsleep &
 
+# Load Xresources
+[[ -f ~/.Xresources ]] && xrdb ~/.Xresources
+
 # dwm reload
 while true; do
 	dwm
 done
-
-# Load Xresources
-[[ -f ~/.Xresources ]] && xrdb ~/.Xresources
-
-# Start desktop
-exec dwm
