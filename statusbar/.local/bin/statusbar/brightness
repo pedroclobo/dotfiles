@@ -5,7 +5,7 @@
 DEVICE=$(light -L | grep "ddcci" | xargs)
 
 # Buttons
-case "$BUTTON" in
+case "$BLOCK_BUTTON" in
 	2) "$TERMINAL" -e "$EDITOR" "$0" ;;
 	4) brictl +5 ;;
 	5) brictl -5 ;;
