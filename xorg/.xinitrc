@@ -12,6 +12,7 @@ xset s off -dpms &          # Disable screen timeout
 unclutter &                 # Hide mouse cursor when inactive
 redshift &                  # Night light
 picom &                     # Compositor
+dunst &                     # Notification daemon
 
 # Automatically lock after 5 minutes of inactivity
 xautolock -time 5 -locker slock -detectsleep &
