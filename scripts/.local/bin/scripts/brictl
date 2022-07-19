@@ -3,7 +3,7 @@
 
 # Signal dwmblocks for a module update
 update_bar() {
-	pkill -RTMIN+2 dwmblocks
+	kill -36 $(pidof dwmblocks)
 }
 
 # Lower the brightness by the value passed

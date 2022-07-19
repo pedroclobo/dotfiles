@@ -3,7 +3,7 @@
 
 # Signal dwmblocks for a module update
 update_bar() {
-	pkill -RTMIN+1 dwmblocks
+	kill -35 $(pidof dwmblocks)
 }
 
 # Change the volume by the value passed

@@ -2,7 +2,7 @@
 # Status bar volume script
 
 # Buttons
-case "$BUTTON" in
+case "$BLOCK_BUTTON" in
 	1) volctl mute ;;
 	2) "$TERMINAL" -e "$EDITOR" "$0" ;;
 	3) "$TERMINAL" -e pulsemixer ;;
