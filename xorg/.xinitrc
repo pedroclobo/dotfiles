@@ -17,7 +17,7 @@ picom &                     # Compositor
 xautolock -time 5 -locker slock -detectsleep &
 
 # Load Xresources
-[[ -f ~/.Xresources ]] && xrdb ~/.Xresources
+xrdb ~/.Xresources
 
 # dwm reload
 while true; do
