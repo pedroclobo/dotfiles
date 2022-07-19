@@ -14,7 +14,7 @@ redshift &                  # Night light
 picom &                     # Compositor
 
 # Load Xresources
-[[ -f ~/.Xresources ]] && xrdb ~/.Xresources
+xrdb ~/.Xresources
 
 # dwm reload
 while true; do
