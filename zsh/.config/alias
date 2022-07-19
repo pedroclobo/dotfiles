@@ -23,7 +23,7 @@ cf() {
 
 	selected=$(echo "$files" | fzf)
 	[ "$selected" = "" ] && return
-	[ -d "$selected" ] && cd "$selected" || open "$selected"
+	[ -d "$selected" ] && cd "$selected" || xdg-open "$selected"
 }
 
 # Fuzzy find university directory
@@ -31,7 +31,7 @@ uni() {
 	files=$(find "$HOME/uni" -not -path "*/\.git*" | sort)
 	selected=$(echo "$files" | fzf)
 	[ "$selected" = "" ] && return
-	[ -d "$selected" ] && cd "$selected" || open "$selected"
+	[ -d "$selected" ] && cd "$selected" || xdg-open "$selected"
 }
 
 # Fuzzy find repositories directory
@@ -39,5 +39,5 @@ rep() {
 	files=$(find "$HOME/repos" -not -path "*/\.git*" | sort)
 	selected=$(echo "$files" | fzf)
 	[ "$selected" = "" ] && return
-	[ -d "$selected" ] && cd "$selected" || open "$selected"
+	[ -d "$selected" ] && cd "$selected" || xdg-open "$selected"
 }
