@@ -12,6 +12,7 @@ xset s off -dpms &          # Disable screen timeout
 unclutter &                 # Hide mouse cursor when inactive
 redshift &                  # Night light
 picom &                     # Compositor
+dunst &                     # Notification daemon
 
 # Load Xresources
 xrdb ~/.Xresources
