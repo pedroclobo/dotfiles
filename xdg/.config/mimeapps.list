@@ -1,3 +1,4 @@
 [Default Applications]
+application/json=nvim.desktop
 application/pdf=org.pwmt.zathura.desktop
 text/x-shellscript=nvim.desktop
