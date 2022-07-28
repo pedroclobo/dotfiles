@@ -3,8 +3,9 @@
 # Connect to external monitor if available
 monitors &
 
-# Set keyboard layout and remap caps to escape
-setxkbmap pt -option "caps:escape" &
+# Set keyboard layout and remap caps to control
+setxkbmap pt -option "caps:ctrl_modifier" &
+xcape -e "Caps_Lock=Escape" &
 
 nitrogen --restore &        # Set wallpaper
 dwmblocks &                 # DWM bar
