@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Output
-date "+  %d-%b-%Y - %R "
+date "+  %d-%b-%Y - %H:%M:%S"
 
 # Buttons
 case "$BLOCK_BUTTON" in
