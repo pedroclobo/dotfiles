@@ -3,11 +3,36 @@
 
 DESTINATION="arch"
 
-choice=$(printf "uni\nrepos\ncalendar" | fzf)
+sync_repos() {
+	diff=$(rsync --dry-run --verbose --recursive --update --delete --exclude "dotfiles" "$HOME"/repos $DESTINATION:)
+	echo "$diff" | grep "deleting"
+	echo ""
+
+	echo "Do you which to continue? "
+	read -r answer
+	case $answer in
+		[Yy]*) rsync --verbose --recursive --update --delete --exclude "dotfiles" "$HOME"/repos $DESTINATION: ;;
+		*) exit ;;
+	esac
+}
+
+sync_uni() {
+	diff=$(rsync --dry-run --verbose --recursive --update --delete "$HOME"/uni $DESTINATION:)
+	echo "$diff" | grep "deleting"
+	echo ""
+
+	echo "Do you which to continue? "
+	read -r answer
+	case $answer in
+		[Yy]*) rsync --verbose --recursive --update --delete "$HOME"/uni $DESTINATION: ;;
+		*) exit ;;
+	esac
+}
+
+choice=$(printf "repos\nuni" | fzf)
 
 case $choice in
-	uni) rsync -vru --delete ~/uni $DESTINATION: ;;
-	repos) rsync -vru --exclude "dotfiles" --delete ~/repos $DESTINATION: ;;
-	calendar) rsync -vr --delete ~/.local/share/calcurse/* $DESTINATION:~/.local/share/calcurse ;;
+	repos) sync_repos ;;
+	uni) sync_uni ;;
 	*) ;;
 esac
