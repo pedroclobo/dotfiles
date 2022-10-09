@@ -2,7 +2,7 @@
 # Takes a screenshot and saves it as a file.
 
 dir="$HOME/images/screenshot"
-[[ ! -d "$dir" ]] && mkdir -p "$dir"
+[ ! -d "$dir" ] && mkdir -p "$dir"
 
 type=$(printf "Full screen\nCurrent window\nSelected area" | dmenu -i -p 'Save to storage: ')
 
