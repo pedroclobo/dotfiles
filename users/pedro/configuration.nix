@@ -20,7 +20,7 @@ in {
 
 		users.users.${username} = {
 			isNormalUser = true;
-			extraGroups = [ "wheel" ];
+			extraGroups = [ "wheel" "vboxsf" ];
 		};
 
 		modules = { zsh.enable = true; };
