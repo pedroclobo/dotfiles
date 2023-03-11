@@ -4,10 +4,14 @@ let
 	inherit (lib) mkAliasDefinitions mkOption types;
 	username = "pedro";
 in {
-	options = { hm = mkOption { type = types.attrs; }; };
+	options = {
+		hm = mkOption { type = types.attrs; };
+		usr = mkOption { type = types.attrs; };
+	};
 
 	config = {
 		home-manager.users.${username} = mkAliasDefinitions options.hm;
+		users.users.${username} = mkAliasDefinitions options.usr;
 
 		hm = {
 			home = {
@@ -18,7 +22,7 @@ in {
 			programs = { home-manager = { enable = true; }; };
 		};
 
-		users.users.${username} = {
+		usr = {
 			isNormalUser = true;
 			extraGroups = [ "wheel" "vboxsf" ];
 		};
