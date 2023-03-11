@@ -1,4 +1,4 @@
-{ pkgs, home-manager, username, ... }:
+{ config, pkgs, home-manager, ... }:
 
 {
 	# Bootloader.
@@ -39,20 +39,6 @@
 	# Networking
 	networking = { networkmanager = { enable = true; }; };
 	services = { openssh = { enable = true; }; };
-
-	# Create user
-	home-manager.users.${username} = {
-		home = {
-			username = username;
-			homeDirectory = "/home/${username}";
-			stateVersion = "22.11";
-		};
-		programs = { home-manager = { enable = true; }; };
-	};
-	users.users.${username} = {
-		isNormalUser = true;
-		extraGroups = [ "wheel" ];
-	};
 
 	# Enable VirtualBox guest tools
 	virtualisation.virtualbox.guest.enable = true;

@@ -1,16 +1,18 @@
 { system, pkgs, home-manager, lib, ... }:
 
 let
+	inherit (builtins) concatLists attrValues readDir;
+	inherit (lib) mapAttrs hasSuffix;
+
 	mkHost = { hostname, username }:
 		lib.nixosSystem {
 			inherit system pkgs;
 
 			modules = [
 				{ networking.hostName = hostname; }
-				(import ../hosts/${hostname}/configuration.nix {
-					inherit pkgs home-manager username;
-				})
+				../hosts/${hostname}/configuration.nix
 				../hosts/${hostname}/hardware.nix
+				../users/${username}/configuration.nix
 
 				home-manager.nixosModules.home-manager
 				{
@@ -19,6 +21,19 @@ let
 						useUserPackages = true;
 					};
 				}
-			];
+			] ++ mkModules ../modules;
 		};
-in { mkHost = mkHost; }
+
+	mkModules = dir:
+		concatLists (attrValues (mapAttrs (name: value:
+			if value == "directory" then
+				mkModules "${dir}/${name}"
+			else if value == "regular" && hasSuffix ".nix" name then
+				[ (import "${dir}/${name}") ]
+			else
+				[ ]) (readDir dir)));
+
+in {
+	mkHost = mkHost;
+	mkModules = mkModules;
+}
