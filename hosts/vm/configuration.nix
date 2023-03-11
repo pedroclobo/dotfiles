@@ -40,6 +40,9 @@
 	networking = { networkmanager = { enable = true; }; };
 	services = { openssh = { enable = true; }; };
 
+	# Enable nix extra commands
+	nix.settings.experimental-features = "nix-command flakes";
+
 	# Enable VirtualBox guest tools
 	virtualisation.virtualbox.guest.enable = true;
 	virtualisation.virtualbox.guest.x11 = true;
