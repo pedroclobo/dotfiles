@@ -29,6 +29,7 @@ in {
 
 		modules = {
 			alacritty.enable = true;
+			neovim.enable = true;
 			qtile.enable = true;
 			zsh.enable = true;
 		};
