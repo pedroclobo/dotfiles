@@ -1,0 +1,13 @@
+diff --git a/config.def.h b/config.def.h
+index 4394dec..240fbda 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -16,7 +16,7 @@ static const char *colors[SchemeLast][2] = {
+ /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
+ static unsigned int lines      = 0;
+ /* -h option; minimum height of a menu line */
+-static unsigned int lineheight = 0;
++static unsigned int lineheight = 24;
+ static unsigned int min_lineheight = 8;
+ 
+ /*

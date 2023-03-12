@@ -27,6 +27,10 @@ in {
 			extraGroups = [ "wheel" "vboxsf" ];
 		};
 
-		modules = { zsh.enable = true; };
+		modules = {
+			alacritty.enable = true;
+			qtile.enable = true;
+			zsh.enable = true;
+		};
 	};
 }

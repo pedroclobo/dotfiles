@@ -24,6 +24,15 @@ let
 			] ++ mkModules ../modules;
 		};
 
+	mkOverlays = dir:
+		concatLists (attrValues (mapAttrs (name: value:
+			if value == "directory" then
+				mkOverlays "${dir}/${name}"
+			else if value == "regular" && hasSuffix ".nix" name then
+				[ (import "${dir}/${name}") ]
+			else
+				[ ]) (readDir dir)));
+
 	mkModules = dir:
 		concatLists (attrValues (mapAttrs (name: value:
 			if value == "directory" then
@@ -35,5 +44,6 @@ let
 
 in {
 	mkHost = mkHost;
+	mkOverlays = mkOverlays;
 	mkModules = mkModules;
 }
