@@ -8,7 +8,6 @@ setxkbmap pt -option "caps:ctrl_modifier" &
 xcape -e "Caps_Lock=Escape" &
 
 nitrogen --restore &        # Set wallpaper
-dwmblocks &                 # DWM bar
 xset s off -dpms &          # Disable screen timeout
 unclutter &                 # Hide mouse cursor when inactive
 redshift &                  # Night light
@@ -18,7 +17,4 @@ dunst &                     # Notification daemon
 # Load Xresources
 xrdb ~/.Xresources
 
-# dwm reload
-while true; do
-	dwm
-done
+qtile start
