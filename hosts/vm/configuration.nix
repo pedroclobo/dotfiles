@@ -47,5 +47,13 @@
 	virtualisation.virtualbox.guest.enable = true;
 	virtualisation.virtualbox.guest.x11 = true;
 
+	# Xorg
+	services.xserver = {
+		resolutions = [{
+			x = 1920;
+			y = 1080;
+		}];
+	};
+
 	system.stateVersion = "22.11";
 }
