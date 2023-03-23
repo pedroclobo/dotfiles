@@ -60,14 +60,14 @@ keys = [
     Key([mod], "n", lazy.layout.flip()),
 ]
 
-groups = [Group("1", persist=False),
+groups = [Group("1"),
           Group("2", matches=[Match(wm_class=["firefox"])]),
-          Group("3", persist=False),
-          Group("4", persist=False),
-          Group("5", persist=False),
-          Group("6", persist=False),
-          Group("7", persist=False),
-          Group("8", persist=False),
+          Group("3"),
+          Group("4"),
+          Group("5"),
+          Group("6"),
+          Group("7"),
+          Group("8"),
           Group("9", matches=[Match(wm_class=["discord"])])]
 
 for i in groups:
