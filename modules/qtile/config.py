@@ -84,19 +84,7 @@ for i in groups:
 	)
 
 layouts = [
-	layout.Columns(border_focus_stack=[colors[1], colors[10]], border_width=2),
-	layout.Max(),
-	# Try more layouts by unleashing below layouts.
-	# layout.Stack(num_stacks=2),
-	# layout.Bsp(),
-	# layout.Matrix(),
-	# layout.MonadTall(),
-	# layout.MonadWide(),
-	# layout.RatioTile(),
-	# layout.Tile(),
-	# layout.TreeTab(),
-	# layout.VerticalTile(),
-	# layout.Zoomy(),
+	layout.MonadTall(border_focus=colors[10], border_normal=colors[1])
 ]
 
 widget_defaults = dict(
