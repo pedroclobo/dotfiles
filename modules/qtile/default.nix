@@ -12,6 +12,7 @@ in {
 				dmenu
 				(nerdfonts.override { fonts = [ "UbuntuMono" ]; })
 				nitrogen
+				picom
 				redshift
 				unclutter
 				xcape
@@ -31,12 +32,16 @@ in {
 					xset s off -dpms &          # Disable screen timeout
 					unclutter &                 # Hide mouse cursor when inactive
 					redshift &                  # Night light
+					picom &                     # Compositor
 
 					qtile start
 				'';
 			};
 
 			services = {
+				picom = {
+					enable = true;
+				};
 				redshift = {
 					enable = true;
 					provider = "manual";
