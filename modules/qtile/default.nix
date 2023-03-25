@@ -12,6 +12,7 @@ in {
 				dmenu
 				(nerdfonts.override { fonts = [ "UbuntuMono" ]; })
 				nitrogen
+				redshift
 				unclutter
 				xcape
 				xorg.xset
@@ -29,9 +30,23 @@ in {
 					nitrogen --restore &        # Set wallpaper
 					xset s off -dpms &          # Disable screen timeout
 					unclutter &                 # Hide mouse cursor when inactive
+					redshift &                  # Night light
 
 					qtile start
 				'';
+			};
+
+			services = {
+				redshift = {
+					enable = true;
+					provider = "manual";
+					latitude = 38.71;
+					longitude = -9.3;
+					temperature = {
+						day = 6500;
+						night = 3400;
+					};
+				};
 			};
 		};
 
