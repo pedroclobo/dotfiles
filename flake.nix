@@ -30,6 +30,10 @@
 					hostname = "vm";
 					username = username;
 				};
+				desktop = util.mkHost {
+					hostname = "desktop";
+					username = username;
+				};
 			};
 		};
 }
