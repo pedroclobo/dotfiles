@@ -16,6 +16,10 @@ in {
 			prefix = "C-a";
 			historyLimit = 50000;
 			escapeTime = 0;
+			terminal = "tmux-256color";
+			extraConfig = ''
+				set-option -sa terminal-overrides ',alacritty:RGB'
+			'';
 		};
 	};
 }
