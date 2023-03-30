@@ -59,6 +59,7 @@
 	# Modules
 	modules = {
 		alacritty.enable = true;
+		git.enable = true;
 		neovim.enable = true;
 		qtile = {
 			enable = true;
