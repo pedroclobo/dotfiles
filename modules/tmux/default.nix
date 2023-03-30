@@ -12,7 +12,7 @@ in {
 			baseIndex = 1;
 			disableConfirmationPrompt = true;
 			keyMode = "vi";
-			mouse = false;
+			mouse = true;
 			prefix = "C-a";
 			historyLimit = 50000;
 			escapeTime = 0;
