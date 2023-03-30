@@ -55,5 +55,14 @@
 		}];
 	};
 
+	# Modules
+	modules = {
+		alacritty.enable = true;
+		neovim.enable = true;
+		qtile.enable = true;
+		tmux.enable = true;
+		zsh.enable = true;
+	};
+
 	system.stateVersion = "22.11";
 }
