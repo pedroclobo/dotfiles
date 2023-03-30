@@ -2,9 +2,16 @@
 
 let
 	cfg = config.modules.qtile;
-	inherit (lib) mkEnableOption mkIf;
+	inherit (lib) mkEnableOption mkIf mkOption types;
 in {
-	options.modules.qtile.enable = mkEnableOption "qtile";
+	options.modules.qtile = {
+		enable = mkEnableOption "qtile";
+		xrandrScript = mkOption {
+			type = types.str;
+			description = "A xrandr script to be executed on startup";
+			default = "";
+		};
+	};
 
 	config = mkIf cfg.enable {
 		hm = {
@@ -25,6 +32,8 @@ in {
 
 				".xinitrc".text = ''
 					#!/bin/sh
+
+					${pkgs.xorg.xrandr}/bin/xrandr ${cfg.xrandrScript}
 
 					# Remap caps to control
 					setxkbmap pt -option "caps:ctrl_modifier" &

@@ -60,7 +60,13 @@
 	modules = {
 		alacritty.enable = true;
 		neovim.enable = true;
-		qtile.enable = true;
+		qtile = {
+			enable = true;
+			xrandrScript = ''
+				--output eDP-1 --off \
+				--output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal;
+			'';
+		};
 		tmux.enable = true;
 		zsh.enable = true;
 	};
