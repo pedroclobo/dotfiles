@@ -63,6 +63,8 @@ keys = [
 	Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
 	Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
 	Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+
+	Key([mod], "Escape", lazy.spawn("sh power")),
 ]
 
 groups = [Group("1"),

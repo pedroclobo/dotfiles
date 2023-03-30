@@ -3,12 +3,24 @@
 let
 	cfg = config.modules.qtile;
 	inherit (lib) mkEnableOption mkIf mkOption types;
+
+	scripts = [
+		(pkgs.writeScriptBin "power" cfg.powerScript)
+	];
+
+	scriptsPath = lib.strings.concatMapStringsSep ":" (x: "${x}/bin") scripts;
+
 in {
 	options.modules.qtile = {
 		enable = mkEnableOption "qtile";
 		xrandrScript = mkOption {
 			type = types.str;
 			description = "A xrandr script to be executed on startup";
+			default = "";
+		};
+		powerScript = mkOption {
+			type = types.str;
+			description = "A script to power down the system";
 			default = "";
 		};
 	};
@@ -31,7 +43,15 @@ in {
 				".config/qtile/config.py".text = builtins.readFile ./config.py;
 
 				".xinitrc".text = ''
-					#!/bin/sh
+					#!${pkgs.bash}
+					$HOME/.xsession
+				'';
+			};
+
+			xsession = {
+				enable = true;
+				initExtra = ''
+					PATH="$PATH:${scriptsPath}"
 
 					${pkgs.xorg.xrandr}/bin/xrandr ${cfg.xrandrScript}
 

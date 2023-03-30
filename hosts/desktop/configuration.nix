@@ -66,6 +66,31 @@
 				--output eDP-1 --off \
 				--output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal;
 			'';
+			powerScript = ''
+				#!/bin/sh
+				# Perform various power managment actions
+
+				reboot_menu() {
+					choice=$(printf "Linux\nWindows\nFirmware" | dmenu -i -p "Reboot to: ")
+
+					case $choice in
+						Linux) systemctl reboot ;;
+						Windows) systemctl reboot --boot-loader-entry=auto-windows ;;
+						Firmware) systemctl reboot --firmware-setup ;;
+						*) ;;
+					esac
+				}
+
+				choice=$(printf "Shutdown\nReboot\nSuspend" | dmenu -i -p "Power menu: ")
+
+				case $choice in
+					Shutdown) systemctl poweroff ;;
+					Reboot) reboot_menu ;;
+					Hibernate) systemctl hibernate ;;
+					Suspend) systemctl suspend ;;
+					*) ;;
+				esac
+			'';
 		};
 		tmux.enable = true;
 		zsh.enable = true;
