@@ -23,10 +23,22 @@ in {
 					};
 					historySubstringSearch.enable = true;
 					initExtra = builtins.readFile ./zshrc;
+					shellAliases = {
+						uni = ''
+							files=$(find "$HOME/uni" -not -path "*/\.git*" | sort)
+							selected=$(echo "$files" | fzf)
+							[ "$selected" = "" ] && return
+							[ -d "$selected" ] && cd "$selected" || xdg-open "$selected"
+						'';
+					};
 				};
 				exa = {
 					enable = true;
 					enableAliases = true;
+				};
+				fzf = {
+					enable = true;
+					enableZshIntegration = true;
 				};
 			};
 		};
