@@ -1,5 +1,4 @@
-local present, lspkind = pcall(require, "lspkind")
-if not present then return end
+local lspkind = require "lspkind"
 
 lspkind.init({
 	symbol_map = {

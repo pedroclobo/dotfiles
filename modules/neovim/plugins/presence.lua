@@ -1,5 +1,4 @@
-local present, presence = pcall(require, "presence")
-if not present then return end
+local presence = require "presence"
 
 presence:setup({
 	auto_update = true,

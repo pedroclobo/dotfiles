@@ -1,4 +1,3 @@
-local present, spellsitter = pcall(require, "spellsitter")
-if not present then return end
+local spellsitter = require "spellsitter"
 
 spellsitter.setup()

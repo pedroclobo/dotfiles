@@ -1,42 +1,10 @@
-local present, lsp = pcall(require, "lspconfig")
-if not present then return end
-
-local servers = {
-	bashls = {},
-	clangd = {},
-	html = {},
-	jdtls = {},
-	pyright = {},
-	r_language_server = {},
-	rust_analyzer = {},
-	sumneko_lua = {
-		settings = {
-			Lua = {
-				diagnostics = {
-					globals = { "vim" },
-				},
-				workspace = {
-					library = {
-						[vim.fn.expand "$VIMRUNTIME/lua"] = true,
-						[vim.fn.stdpath "config" .. "/lua"] = true,
-					},
-				},
-				telemetry = {
-					enable = false,
-				},
-			},
-		},
-	},
-	texlab = {},
-}
-
+local lsp = require "lspconfig"
 
 local handlers = {}
 
 -- Illuminate
 local function highlight(client)
-	local present, illuminate = pcall(require, "illuminate")
-	if not present then return end
+	local illuminate = require "illuminate"
 	illuminate.on_attach(client)
 end
 
@@ -54,44 +22,56 @@ local function keymaps(bufnr)
 	keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float({ border = \"rounded\" })<CR>", opts)
 	keymap(bufnr, "n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	keymap(bufnr, "n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+	keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 end
 
--- LSP specific autocommands
-local function autocommands(bufnr)
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		group = vim.api.nvim_create_augroup("Format", { clear = true }),
-		buffer = bufnr,
-		callback = function() vim.lsp.buf.format() end,
-	})
-end
-
+-- Define on_attach
 handlers.on_attach = function(client, bufnr)
 	highlight(client)
 	keymaps(bufnr)
-	autocommands(bufnr)
 
 	-- Disable autoformat
 	client.server_capabilities.document_formatting = false
 	client.server_capabilities.document_range_formatting = false
 end
 
-local present, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not present then return end
-
+-- Attach cmp completions
+local cmp_nvim_lsp = require "cmp_nvim_lsp"
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-
 handlers.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
--- Setup all installed servers
-local on_attach = handlers.on_attach
-local capabilites = handlers.capabilities
-capabilites.offsetEncoding = { "utf-16" }
-
 local opts = {
-	on_attach = on_attach,
-	capabilities = capabilites,
+	on_attach = handlers.on_attach,
+	capabilities = handlers.capabilities,
 }
 
-lsp.rust_analyzer.setup{opts}
-lsp.sumneko_lua.setup{opts}
-lsp.rnix.setup{opts}
+-- Rust
+lsp.rust_analyzer.setup(opts)
+
+-- Lua
+local lua_opts = {
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				library = {
+					[vim.fn.expand "$VIMRUNTIME/lua"] = true,
+					[vim.fn.stdpath "config" .. "/lua"] = true,
+				},
+			},
+			telemetry = {
+				enable = false,
+			},
+		},
+	},
+}
+lua_opts = vim.tbl_deep_extend("force", opts, lua_opts)
+lsp.lua_ls.setup(lua_opts)
+
+-- Nix
+lsp.rnix.setup(opts)
+
+-- Python
+lsp.pyright.setup(opts)

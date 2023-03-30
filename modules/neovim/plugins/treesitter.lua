@@ -1,5 +1,4 @@
-local present, configs = pcall(require, "nvim-treesitter.configs")
-if not present then return end
+local configs = require "nvim-treesitter.configs"
 
 configs.setup({
 	ensure_installed = {},

@@ -1,5 +1,4 @@
-local present, gitsigns = pcall(require, "gitsigns")
-if not present then return end
+local gitsigns = require "gitsigns"
 
 gitsigns.setup({
 	signs = {

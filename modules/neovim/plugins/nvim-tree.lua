@@ -1,8 +1,5 @@
-local present, tree = pcall(require, "nvim-tree")
-if not present then return end
-
-local present, config = pcall(require, "nvim-tree.config")
-if not present then return end
+local tree = require "nvim-tree"
+local config = require "nvim-tree.config"
 
 tree.setup({
 	auto_reload_on_write = true,
