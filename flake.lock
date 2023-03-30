@@ -37,10 +37,27 @@
 				"type": "github"
 			}
 		},
+		"nixpkgs-unstable": {
+			"locked": {
+				"lastModified": 1679944645,
+				"narHash": "sha256-e5Qyoe11UZjVfgRfwNoSU57ZeKuEmjYb77B9IVW7L/M=",
+				"owner": "nixos",
+				"repo": "nixpkgs",
+				"rev": "4bb072f0a8b267613c127684e099a70e1f6ff106",
+				"type": "github"
+			},
+			"original": {
+				"owner": "nixos",
+				"ref": "nixos-unstable",
+				"repo": "nixpkgs",
+				"type": "github"
+			}
+		},
 		"root": {
 			"inputs": {
 				"home-manager": "home-manager",
-				"nixpkgs": "nixpkgs"
+				"nixpkgs": "nixpkgs",
+				"nixpkgs-unstable": "nixpkgs-unstable"
 			}
 		},
 		"utils": {
