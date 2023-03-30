@@ -17,6 +17,7 @@ in {
 				unclutter
 				xcape
 				xorg.xset
+				xorg.setxkbmap
 			];
 
 			home.file = {
@@ -26,6 +27,7 @@ in {
 					#!/bin/sh
 
 					# Remap caps to control
+					setxkbmap pt -option "caps:ctrl_modifier" &
 					xcape -e "Caps_Lock=Escape" &
 
 					nitrogen --restore &        # Set wallpaper
