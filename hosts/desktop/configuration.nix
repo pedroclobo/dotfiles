@@ -59,6 +59,7 @@
 	# Modules
 	modules = {
 		alacritty.enable = true;
+		docker.enable = true;
 		git.enable = true;
 		neovim.enable = true;
 		qtile = {
