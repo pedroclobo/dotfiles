@@ -24,7 +24,7 @@ in {
 
 		usr = {
 			isNormalUser = true;
-			extraGroups = [ "wheel" "vboxsf" ];
+			extraGroups = [ "wheel" ];
 		};
 	};
 }
