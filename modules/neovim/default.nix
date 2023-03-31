@@ -172,6 +172,7 @@ in
 
 					nodejs-16_x
 					xclip
+					ripgrep
 				];
 			};
 		};
