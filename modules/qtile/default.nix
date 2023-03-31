@@ -23,6 +23,11 @@ in {
 			description = "A script to power down the system";
 			default = "";
 		};
+		autoLogin = mkOption {
+			type = types.str;
+			description = "Auto login as specified user";
+			default = null;
+		};
 	};
 
 	config = mkIf cfg.enable {
@@ -86,6 +91,7 @@ in {
 			};
 		};
 
+		services.getty.autologinUser = cfg.autoLogin;
 		services.xserver = {
 			enable = true;
 			autorun = true;

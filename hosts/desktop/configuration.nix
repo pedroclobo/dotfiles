@@ -93,6 +93,7 @@
 					*) ;;
 				esac
 			'';
+			autoLogin = "pedro";
 		};
 		tmux.enable = true;
 		zathura.enable = true;
