@@ -28,6 +28,11 @@ in {
 			description = "Auto login as specified user";
 			default = null;
 		};
+		autoStart = mkOption {
+			type = types.bool;
+			description = "Auto start";
+			default = true;
+		};
 	};
 
 	config = mkIf cfg.enable {
@@ -43,6 +48,10 @@ in {
 				xorg.xset
 				xorg.setxkbmap
 			];
+
+			programs.zsh.initExtra = ''
+				[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
+			'';
 
 			home.file = {
 				".config/qtile/config.py".text = builtins.readFile ./config.py;
