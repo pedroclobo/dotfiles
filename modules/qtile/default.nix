@@ -100,7 +100,15 @@ in {
 			};
 		};
 
-		services.getty.autologinUser = cfg.autoLogin;
+		services.getty = {
+			autologinUser = cfg.autoLogin;
+			extraArgs = [
+				"--skip-login"
+				"--nonewline"
+				"--noissue"
+				"--noclear"
+			];
+		};
 		services.xserver = {
 			enable = true;
 			autorun = true;
