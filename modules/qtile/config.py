@@ -2,8 +2,9 @@ from libqtile import bar, layout, widget, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 
+import os
+
 mod = "mod1"
-terminal = "alacritty"
 
 colors = [
 	"2E3440",
@@ -26,7 +27,7 @@ colors = [
 
 keys = [
 	Key([mod], "space", lazy.spawn("dmenu_run")),
-	Key([mod], "Return", lazy.spawn(terminal)),
+	Key([mod], "Return", lazy.spawn(os.environ.get("TERMINAL"))),
 	Key([mod], "b", lazy.spawn("firefox")),
 	Key([mod], "Escape", lazy.spawn("sh power")),
 	Key([mod], "f", lazy.window.toggle_fullscreen()),
