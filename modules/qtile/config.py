@@ -90,20 +90,10 @@ screens = [
 								rounded=False,
 								padding=4,
 								this_screen_border=colors[1]),
-				widget.CurrentLayoutIcon(scale=0.5),
-				widget.Spacer(length=2),
 				widget.WindowName(fmt=" {}", background=colors[10]),
-				#widget.Chord(
-				#	chords_colors={
-				#		"launch": ("#ff0000", "#ffffff"),
-				#	},
-				#	name_transform=lambda name: name.upper(),
-				#),
 				widget.Clock(format="   %d-%b-%Y - %H:%M:%S"),
 			],
 			24,
-			# border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-			# border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
 		),
 	),
 ]
