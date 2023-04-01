@@ -37,6 +37,9 @@ keys = [
 	Key([mod], "q", lazy.window.kill()),
 	Key([mod], "r", lazy.reload_config()),
 
+	Key([], "Print", lazy.spawn("sh screen-save")),
+	Key(["shift"], "Print", lazy.spawn("sh screen-clip")),
+
 	# Switch between windows
 	Key([mod], "j", lazy.layout.down()),
 	Key([mod], "k", lazy.layout.up()),
