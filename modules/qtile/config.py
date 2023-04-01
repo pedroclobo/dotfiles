@@ -28,7 +28,7 @@ colors = [
 keys = [
 	Key([mod], "space", lazy.spawn("dmenu_run")),
 	Key([mod], "Return", lazy.spawn(os.environ.get("TERMINAL"))),
-	Key([mod], "b", lazy.spawn("firefox")),
+	Key([mod], "b", lazy.spawn(os.environ.get("BROWSER"))),
 	Key([mod], "Escape", lazy.spawn("sh power")),
 	Key([mod], "f", lazy.window.toggle_fullscreen()),
 
