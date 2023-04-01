@@ -1,7 +1,8 @@
-from libqtile import bar, layout, widget, qtile
+from libqtile import bar, layout, widget, qtile, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 
+import psutil
 import os
 
 mod = "mod1"
@@ -132,3 +133,23 @@ reconfigure_screens = True
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
 auto_minimize = True
+
+@hook.subscribe.client_new
+def _swallow(window):
+	pid = window.window.get_net_wm_pid()
+	ppid = psutil.Process(pid).ppid()
+	cpids = {c.window.get_net_wm_pid(): wid for wid, c in window.qtile.windows_map.items()}
+	for i in range(5):
+		if not ppid:
+			return
+		if ppid in cpids:
+			parent = window.qtile.windows_map.get(cpids[ppid])
+			parent.minimized = True
+			window.parent = parent
+			return
+		ppid = psutil.Process(ppid).ppid()
+
+@hook.subscribe.client_killed
+def _unswallow(window):
+	if hasattr(window, 'parent'):
+		window.parent.minimized = False

@@ -47,6 +47,8 @@ in {
 				xcape
 				xorg.xset
 				xorg.setxkbmap
+
+				python310Packages.psutil
 			];
 
 			programs.zsh.initExtra = ''
