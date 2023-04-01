@@ -54,7 +54,7 @@ groups = [Group("1"),
 		  Group("6"),
 		  Group("7"),
 		  Group("8"),
-		  Group("9")]
+		  Group("9", matches=[Match(wm_class=["discord"])])]
 
 for i in groups:
 	keys.extend(
