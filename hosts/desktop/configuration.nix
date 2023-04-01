@@ -97,6 +97,7 @@
 			autoLogin = "pedro";
 		};
 		plymouth.enable = true;
+		sxiv.enable = true;
 		tmux.enable = true;
 		zathura.enable = true;
 		zsh.enable = true;
