@@ -24,7 +24,15 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git:*' formats " %{$fg[magenta]%}(%{$fg[red]%}%m%u%c%{$fg[yellow]%}%{$fg[magenta]%} %b%{$fg[magenta]%})"
 
-PS1="%B%{$fg[blue]%}%n@%M %~%{$fg[yellow]%}\$vcs_info_msg_0_%{$reset_color%} %(?.$.%{$fg[red]%}$)%b "
+# Check if inside a Nix shell and set prompt accordingly
+if [[ -n "$IN_NIX_SHELL" ]]; then
+	PROMPT_INDICATOR="%{$fg[yellow]%}(nix)%{$reset_color%} "
+else
+    PROMPT_INDICATOR=""
+fi
+
+# Set the prompt with the Nix indicator
+PS1="${PROMPT_INDICATOR}%B%{$fg[blue]%}%n@%M %~%{$fg[yellow]%}\$vcs_info_msg_0_%{$reset_color%} %(?.$.%{$fg[red]%}$)%b "
 
 
 ###############
