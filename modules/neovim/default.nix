@@ -156,6 +156,8 @@ in
 						nvim-treesitter-textobjects
 						nvim-ts-rainbow
 						nvim-ts-autotag
+
+						nvim-web-devicons
 					];
 					extraPackages = with pkgs; [
 						# Language Servers
