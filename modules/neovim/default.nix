@@ -30,7 +30,7 @@ in
 
 	config = mkIf cfg.enable {
 		environment.sessionVariables = {
-			EDITOR = "nvim";
+			EDITOR = "vi";
 		};
 		hm = {
 			programs = {
