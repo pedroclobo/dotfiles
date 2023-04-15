@@ -20,6 +20,16 @@ in {
 			extraConfig = ''
 				set-option -sa terminal-overrides ',alacritty:RGB'
 			'';
+			plugins = with pkgs.tmuxPlugins; [
+				resurrect
+				{
+					plugin = continuum;
+					extraConfig = ''
+						set -g @continuum-boot 'on'
+						set -g @continuum-restore 'on'
+					'';
+				}
+			];
 		};
 	};
 }
