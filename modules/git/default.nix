@@ -19,6 +19,10 @@ in {
 				init.defaultBranch = "master";
 				pull.rebase = true;
 			};
+			signing = {
+				key = "0AFF77833048F8EC";
+				signByDefault = true;
+			};
 		};
 	};
 }
