@@ -11,11 +11,6 @@ in {
 			description = "A xrandr script to be executed on startup";
 			default = "";
 		};
-		powerScript = mkOption {
-			type = types.str;
-			description = "A script to power down the system";
-			default = "";
-		};
 		autoLogin = mkOption {
 			type = types.str;
 			description = "Auto login as specified user";
