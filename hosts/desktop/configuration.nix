@@ -68,6 +68,7 @@
 			power.enable = true;
 			screen-clip.enable = true;
 			screen-save.enable = true;
+			yt-dl.enable = true;
 		};
 		neovim.enable = true;
 		qtile = {
