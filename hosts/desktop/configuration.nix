@@ -64,6 +64,7 @@
 		git.enable = true;
 		scripts = {
 			compiler.enable = true;
+			opout.enable = true;
 			power.enable = true;
 			screen-clip.enable = true;
 			screen-save.enable = true;
