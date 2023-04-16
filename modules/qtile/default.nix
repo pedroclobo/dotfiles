@@ -12,7 +12,7 @@ in {
 			default = "";
 		};
 		autoLogin = mkOption {
-			type = types.str;
+			type = types.nullOr types.str;
 			description = "Auto login as specified user";
 			default = null;
 		};
