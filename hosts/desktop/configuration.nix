@@ -65,6 +65,8 @@
 		scripts = {
 			compiler.enable = true;
 			power.enable = true;
+			screen-clip.enable = true;
+			screen-save.enable = true;
 		};
 		neovim.enable = true;
 		qtile = {
