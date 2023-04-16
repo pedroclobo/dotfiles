@@ -5,7 +5,6 @@ let
 	inherit (lib) mkEnableOption mkIf mkOption types;
 
 	scripts = [
-		(pkgs.writeScriptBin "power" cfg.powerScript)
 		(pkgs.writeScriptBin "screen-clip" ''
 			#!/bin/sh
 			# Takes a screenshot and saves it to the clipboard.
