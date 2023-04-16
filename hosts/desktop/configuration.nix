@@ -63,6 +63,7 @@
 		firefox.enable = true;
 		git.enable = true;
 		scripts = {
+			compiler.enable = true;
 			power.enable = true;
 		};
 		neovim.enable = true;
