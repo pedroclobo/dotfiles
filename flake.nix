@@ -44,6 +44,10 @@
 					hostname = "desktop";
 					username = username;
 				};
+				laptop = util.mkHost {
+					hostname = "laptop";
+					username = username;
+				};
 			};
 		};
 }
