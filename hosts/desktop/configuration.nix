@@ -62,6 +62,7 @@
 		docker.enable = true;
 		firefox.enable = true;
 		git.enable = true;
+		gpg.enable = true;
 		scripts = {
 			compiler.enable = true;
 			opout.enable = true;
