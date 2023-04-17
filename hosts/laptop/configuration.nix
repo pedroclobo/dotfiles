@@ -48,6 +48,14 @@
 			x = 1366;
 			y = 768;
 		}];
+		libinput = {
+			enable = true;
+			touchpad = {
+				middleEmulation = true;
+				naturalScrolling = false;
+				tapping = false;
+			};
+		};
 	};
 
 	# Security
