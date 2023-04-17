@@ -11,6 +11,11 @@ in {
 			description = "Font size";
 			default = 14;
 		};
+		opacity = mkOption {
+			type = types.float;
+			description = "Terminal opacity";
+			default = 1.0;
+		};
 	};
 
 	config = mkIf cfg.enable {
@@ -22,7 +27,7 @@ in {
 				enable = true;
 				settings = {
 					window = {
-						opacity = 1;
+						opacity = cfg.opacity;
 						padding = {
 							x = 10;
 							y = 10;

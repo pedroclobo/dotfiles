@@ -69,6 +69,7 @@
 		alacritty = {
 			enable = true;
 			fontSize = 12;
+			opacity = 0.95;
 		};
 		docker.enable = true;
 		firefox.enable = true;
