@@ -2,9 +2,16 @@
 
 let
 	cfg = config.modules.alacritty;
-	inherit (lib) mkEnableOption mkIf;
+	inherit (lib) mkEnableOption mkIf mkOption types;
 in {
-	options.modules.alacritty.enable = mkEnableOption "alacritty";
+	options.modules.alacritty = {
+		enable = mkEnableOption "alacritty";
+		fontSize = mkOption {
+			type = types.number;
+			description = "Font size";
+			default = 14;
+		};
+	};
 
 	config = mkIf cfg.enable {
 		environment.sessionVariables = {
@@ -26,7 +33,7 @@ in {
 							family = "UbuntuMono Nerd Font";
 							style = "Regular";
 						};
-						size = 14;
+						size = cfg.fontSize;
 					};
 					colors = {
 						primary = {

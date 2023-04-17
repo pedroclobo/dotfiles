@@ -58,7 +58,10 @@
 
 	# Modules
 	modules = {
-		alacritty.enable = true;
+		alacritty = {
+			enable = true;
+			fontSize = 14;
+		};
 		docker.enable = true;
 		firefox.enable = true;
 		git.enable = true;
