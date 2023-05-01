@@ -21,6 +21,7 @@ in {
 				set-option -sa terminal-overrides ',alacritty:RGB'
 			'';
 			plugins = with pkgs.tmuxPlugins; [
+				yank
 				resurrect
 				{
 					plugin = continuum;
