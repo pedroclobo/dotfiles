@@ -81,6 +81,10 @@
 			power.enable = true;
 			screen-clip.enable = true;
 			screen-save.enable = true;
+			syncf = {
+				enable = true;
+				host = "laptop";
+			};
 			yt-dl.enable = true;
 		};
 		neovim.enable = true;
