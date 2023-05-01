@@ -93,5 +93,13 @@
 		zsh.enable = true;
 	};
 
+	# Packages
+	environment.systemPackages = with pkgs; [
+		android-tools
+		discord
+		scrcpy
+		slack
+	];
+
 	system.stateVersion = "22.11";
 }
