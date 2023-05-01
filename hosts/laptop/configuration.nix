@@ -103,6 +103,7 @@
 		discord
 		scrcpy
 		slack
+		unzip
 	];
 
 	system.stateVersion = "22.11";
