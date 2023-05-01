@@ -165,6 +165,7 @@ in
 						rnix-lsp
 						rust-analyzer
 						nodePackages.pyright
+						llvmPackages_9.libclang
 
 						# Linters
 						shellcheck

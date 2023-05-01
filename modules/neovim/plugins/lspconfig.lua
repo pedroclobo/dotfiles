@@ -75,3 +75,11 @@ lsp.rnix.setup(opts)
 
 -- Python
 lsp.pyright.setup(opts)
+
+-- C/C++
+lsp.clangd.setup(opts)
+local notify = vim.notify
+vim.notify = function(msg, ...)
+	if msg:match "warning: multiple different client offset_encodings" then return end
+	notify(msg, ...)
+end
