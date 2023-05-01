@@ -15,7 +15,7 @@
 	boot.blacklistedKernelModules = [ "nouveau" ];
 
 	fileSystems."/" =
-		{ device = "/dev/disk/by-uuid/9bf3fcf6-df59-4703-83be-e17e9a898ff5";
+		{ device = "/dev/disk/by-uuid/f8f14119-1d45-4340-846c-9e91210e9f9a";
 			fsType = "ext4";
 		};
 
