@@ -19,6 +19,8 @@ in {
 			terminal = "tmux-256color";
 			extraConfig = ''
 				set-option -sa terminal-overrides ',alacritty:RGB'
+				set -g status-left ""
+				set -g status-right ""
 			'';
 			plugins = with pkgs.tmuxPlugins; [
 				{
