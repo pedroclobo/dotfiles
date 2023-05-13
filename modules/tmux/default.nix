@@ -21,7 +21,12 @@ in {
 				set-option -sa terminal-overrides ',alacritty:RGB'
 			'';
 			plugins = with pkgs.tmuxPlugins; [
-				nord
+				{
+					plugin = nord;
+					extraConfig = ''
+						set -g @nord_tmux_no_patched_font "1"
+					'';
+				}
 				yank
 				resurrect
 				{
