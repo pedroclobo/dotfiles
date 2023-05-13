@@ -102,6 +102,8 @@
 		scrcpy
 		slack
 		unzip
+		wget
+		zip
 	];
 
 	system.stateVersion = "22.11";
