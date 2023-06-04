@@ -47,5 +47,6 @@ in {
 			};
 		};
 		usr = { shell = pkgs.zsh; };
+		programs.zsh.enable = cfg.enable;
 	};
 }

@@ -176,7 +176,7 @@ in
 						stylua
 						yapf
 
-						nodejs-16_x
+						nodejs_18
 						xclip
 						ripgrep
 					];
