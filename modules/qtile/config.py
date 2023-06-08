@@ -118,7 +118,7 @@ cursor_warp = False
 floating_layout = layout.Floating(
 	float_rules=[
 		*layout.Floating.default_float_rules,
-		#Match(wm_class="confirmreset"),  # gitk
+		Match(wm_class="pinentry"),
 	]
 )
 auto_fullscreen = True
