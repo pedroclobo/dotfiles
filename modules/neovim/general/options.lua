@@ -28,3 +28,4 @@ for k, v in pairs(options) do
 end
 
 vim.cmd "highlight WinSeparator guibg=None"
+vim.cmd [[set list listchars=tab:»\ ,trail:-,eol:↲]]
