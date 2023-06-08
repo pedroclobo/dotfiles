@@ -99,6 +99,7 @@
 	environment.systemPackages = with pkgs; [
 		android-tools
 		discord
+		neofetch
 		scrcpy
 		slack
 		unzip
