@@ -1,0 +1,23 @@
+Config {
+	position = BottomH 24,
+	font = "UbuntuMono Nerd Font 12",
+	bgColor = "#2e3440",
+	fgColor = "#d8dee9",
+
+	lowerOnStart = True,
+	hideOnStart = False,
+	allDesktops = True,
+	overrideRedirect = True,
+	pickBroadest = False,
+	persistent = True,
+
+	sepChar = "%",
+	alignSep = "}{",
+
+	commands = [
+		Run Date "%d-%b-%Y - %H:%M:%S" "date" 10,
+		Run UnsafeStdinReader
+	],
+
+	template = " %UnsafeStdinReader% }{ %date% "
+}

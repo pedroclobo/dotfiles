@@ -48,7 +48,7 @@
 		xkbVariant = "";
 		enable = true;
 		displayManager = {
-			defaultSession = "none+qtile";
+			defaultSession = "none+xmonad";
 			lightdm.enable = true;
 		};
 		libinput = {
@@ -104,6 +104,7 @@
 		qtile.enable = true;
 		sxiv.enable = true;
 		tmux.enable = true;
+		xmonad.enable = true;
 		zathura.enable = true;
 		zsh.enable = true;
 	};
