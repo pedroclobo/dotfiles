@@ -112,8 +112,11 @@
 	# Packages
 	environment.systemPackages = with pkgs; [
 		android-tools
+		calc
 		discord
 		neofetch
+		htop
+		pulsemixer
 		scrcpy
 		slack
 		unzip
