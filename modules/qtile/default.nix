@@ -6,21 +6,6 @@ let
 in {
 	options.modules.qtile = {
 		enable = mkEnableOption "qtile";
-		xrandrScript = mkOption {
-			type = types.str;
-			description = "A xrandr script to be executed on startup";
-			default = "";
-		};
-		autoLogin = mkOption {
-			type = types.nullOr types.str;
-			description = "Auto login as specified user";
-			default = null;
-		};
-		autoStart = mkOption {
-			type = types.bool;
-			description = "Auto start";
-			default = true;
-		};
 	};
 
 	config = mkIf cfg.enable {
@@ -39,36 +24,8 @@ in {
 				python310Packages.psutil
 			];
 
-			programs.zsh.initExtra = ''
-				[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
-			'';
-
 			home.file = {
 				".config/qtile/config.py".text = builtins.readFile ./config.py;
-
-				".xinitrc".text = ''
-					#!${pkgs.bash}
-					$HOME/.xsession
-				'';
-			};
-
-			xsession = {
-				enable = true;
-				initExtra = ''
-					${pkgs.xorg.xrandr}/bin/xrandr ${cfg.xrandrScript}
-
-					# Remap caps to control
-					setxkbmap pt -option "caps:ctrl_modifier" &
-					xcape -e "Caps_Lock=Escape" &
-
-					nitrogen --restore &        # Set wallpaper
-					xset s off -dpms &          # Disable screen timeout
-					unclutter &                 # Hide mouse cursor when inactive
-					redshift &                  # Night light
-					picom &                     # Compositor
-
-					qtile start
-				'';
 			};
 
 			services = {
@@ -88,22 +45,9 @@ in {
 			};
 		};
 
-		services.getty = {
-			autologinUser = cfg.autoLogin;
-			extraArgs = [
-				"--skip-login"
-				"--nonewline"
-				"--noissue"
-				"--noclear"
-			];
-		};
 		services.xserver = {
 			enable = true;
-			autorun = true;
-			displayManager.startx.enable = true;
 			windowManager = { qtile = { enable = true; }; };
-			layout = "pt";
-			xkbVariant = "";
 		};
 	};
 }

@@ -44,10 +44,30 @@
 
 	# Xorg
 	services.xserver = {
-		resolutions = [{
-			x = 1920;
-			y = 1080;
-		}];
+		layout = "pt";
+		xkbVariant = "";
+		enable = true;
+		displayManager = {
+			autoLogin = {
+				enable = true;
+				user = "pedro";
+			};
+			defaultSession = "none+qtile";
+			lightdm.enable = true;
+			setupCommands = ''
+				${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+			'';
+		};
+	};
+
+	services.getty = {
+		autologinUser = "pedro";
+		extraArgs = [
+			"--skip-login"
+			"--nonewline"
+			"--noissue"
+			"--noclear"
+		];
 	};
 
 	# Security
@@ -67,6 +87,9 @@
 		firefox.enable = true;
 		git.enable = true;
 		gpg.enable = true;
+		neovim.enable = true;
+		plymouth.enable = true;
+		qtile.enable = true;
 		scripts = {
 			compiler.enable = true;
 			opout.enable = true;
@@ -79,16 +102,6 @@
 			};
 			yt-dl.enable = true;
 		};
-		neovim.enable = true;
-		qtile = {
-			enable = true;
-			xrandrScript = ''
-				--output eDP-1 --off \
-				--output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal;
-			'';
-			autoLogin = "pedro";
-		};
-		plymouth.enable = true;
 		sxiv.enable = true;
 		tmux.enable = true;
 		zathura.enable = true;

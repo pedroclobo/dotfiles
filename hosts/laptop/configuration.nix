@@ -44,10 +44,13 @@
 
 	# Xorg
 	services.xserver = {
-		resolutions = [{
-			x = 1366;
-			y = 768;
-		}];
+		layout = "pt";
+		xkbVariant = "";
+		enable = true;
+		displayManager = {
+			defaultSession = "none+qtile";
+			lightdm.enable = true;
+		};
 		libinput = {
 			enable = true;
 			touchpad = {
@@ -56,6 +59,16 @@
 				tapping = false;
 			};
 		};
+	};
+
+	services.getty = {
+		autologinUser = "pedro";
+		extraArgs = [
+			"--skip-login"
+			"--nonewline"
+			"--noissue"
+			"--noclear"
+		];
 	};
 
 	# Security
@@ -88,9 +101,7 @@
 			yt-dl.enable = true;
 		};
 		neovim.enable = true;
-		qtile = {
-			enable = true;
-		};
+		qtile.enable = true;
 		sxiv.enable = true;
 		tmux.enable = true;
 		zathura.enable = true;
