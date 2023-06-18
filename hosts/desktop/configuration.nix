@@ -104,6 +104,7 @@
 		};
 		sxiv.enable = true;
 		tmux.enable = true;
+		virt-manager.enable = true;
 		zathura.enable = true;
 		zsh.enable = true;
 	};
