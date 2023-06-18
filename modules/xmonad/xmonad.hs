@@ -117,13 +117,13 @@ myEventHook = mempty
 -- Status bars and logging
 myBar = "xmobar"
 myPP = xmobarPP {
-	ppCurrent = xmobarColor "#e5e9f0" "" . wrap "[" "]",
-	ppVisible = xmobarColor "#d8dee9" "" . wrap " " " ",
-	ppHidden = xmobarColor "#d8dee9" "". wrap " " " ",
+	ppCurrent = xmobarColor "#e5e9f0" "" . wrap "<box type=Bottom width=2 mb=2 color=#5e81ac>" "</box>",
+	ppVisible = xmobarColor "#d8dee9" "",
+	ppHidden = xmobarColor "#d8dee9" "",
 	ppTitle = xmobarColor "#d8dee9" "" . shorten 50,
 	ppLayout = xmobarColor "#d8dee9" "",
 	ppSep = " | ",
-	ppWsSep = ""
+	ppWsSep = "  "
 }
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_o)
 myLogHook = return ()
