@@ -3,6 +3,7 @@ import Data.Monoid
 import System.Exit
 import Graphics.X11.ExtraTypes.XF86
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.WindowSwallowing
 import XMonad.Util.SpawnOnce
 import XMonad.Util.NamedScratchpad
 
@@ -110,7 +111,7 @@ myManageHook = composeAll
 ------------------------------------------------------------------------
 
 -- Event Handling
-myEventHook = mempty
+myEventHook = swallowEventHook (className =? "Alacritty") (return True)
 
 ------------------------------------------------------------------------
 
