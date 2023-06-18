@@ -4,6 +4,7 @@ import System.Exit
 import Graphics.X11.ExtraTypes.XF86
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.SpawnOnce
+import XMonad.Util.NamedScratchpad
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
@@ -89,12 +90,22 @@ myLayout = tiled ||| Full
 ------------------------------------------------------------------------
 
 -- Window Rules
+myScratchpads =
+	[
+	  NS "calc" "alacritty --class calc -e calc" (resource =? "calc") (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8)
+	]
+
+myScratchpadKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
+	[
+	  ((modm, xK_c), namedScratchpadAction myScratchpads "calc")
+	]
+
 myManageHook = composeAll
 	[
 	  className =? "pinentry" --> doFloat,
 	  className =? "firefox"  --> doShift ( myWorkspaces !! 1 ),
 	  className =? "discord"  --> doShift ( myWorkspaces !! 8 )
-	]
+	] <+> namedScratchpadManageHook myScratchpads
 
 ------------------------------------------------------------------------
 
@@ -141,7 +152,7 @@ defaults = def {
 	workspaces         = myWorkspaces,
 	normalBorderColor  = myNormalBorderColor,
 	focusedBorderColor = myFocusedBorderColor,
-	keys               = myKeys,
+	keys               = myKeys <+> myScratchpadKeys,
 	mouseBindings      = myMouseBindings,
 	layoutHook         = myLayout,
 	manageHook         = myManageHook,
