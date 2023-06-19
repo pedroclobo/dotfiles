@@ -93,12 +93,14 @@ myLayout = tiled ||| Full
 -- Window Rules
 myScratchpads =
 	[
-	  NS "calc" "alacritty --class calc -e calc" (resource =? "calc") (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8)
-	]
+	  NS "calc" "alacritty --class calc -e calc" (resource =? "calc") (wp),
+	  NS "pulsemixer" "alacritty --class pulsemixer -e pulsemixer" (resource =? "pulsemixer") (wp)
+	] where wp = customFloating $ W.RationalRect 0.1 0.1 0.8 0.8
 
 myScratchpadKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 	[
-	  ((modm, xK_c), namedScratchpadAction myScratchpads "calc")
+	  ((modm, xK_c), namedScratchpadAction myScratchpads "calc"),
+	  ((modm, xK_p), namedScratchpadAction myScratchpads "pulsemixer")
 	]
 
 myManageHook = composeAll
