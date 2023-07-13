@@ -130,12 +130,6 @@ in
 						}
 
 						{
-							plugin = presence-nvim;
-							type = "lua";
-							config = builtins.readFile ./plugins/presence.lua;
-						}
-
-						{
 							plugin = spellsitter-nvim;
 							type = "lua";
 							config = builtins.readFile ./plugins/spellsitter.lua;
