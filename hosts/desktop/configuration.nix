@@ -115,11 +115,14 @@
 		android-tools
 		calc
 		discord
-		neofetch
 		htop
+		hyperfine
+		neofetch
 		pulsemixer
 		scrcpy
 		slack
+		syncthing
+		tree
 		unzip
 		wget
 		zip
