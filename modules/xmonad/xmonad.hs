@@ -139,7 +139,6 @@ myStartupHook = do
 	spawnOnce "xcape -e \"Caps_Lock=Escape\""
 	spawnOnce "xset s off -dpms"
 	spawnOnce "unclutter"
-	spawnOnce "redshift"
 	spawnOnce "picom"
 
 ------------------------------------------------------------------------
