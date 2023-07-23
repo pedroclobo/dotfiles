@@ -137,7 +137,6 @@ myLogHook = return ()
 myStartupHook = do
 	spawnOnce "setxkbmap pt -option \"caps:ctrl_modifier\""
 	spawnOnce "xcape -e \"Caps_Lock=Escape\""
-	spawnOnce "nitrogen --restore"
 	spawnOnce "xset s off -dpms"
 	spawnOnce "unclutter"
 	spawnOnce "redshift"

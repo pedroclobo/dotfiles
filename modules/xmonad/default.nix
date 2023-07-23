@@ -9,11 +9,11 @@ in {
 	};
 
 	config = mkIf cfg.enable {
+		modules.nitrogen.enable = true;
 		hm = {
 			home.packages = with pkgs; [
 				(nerdfonts.override { fonts = [ "UbuntuMono" ]; })
 				dmenu
-				nitrogen
 				picom
 				redshift
 				unclutter
