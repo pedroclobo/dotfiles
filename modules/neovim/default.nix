@@ -39,6 +39,7 @@ in
 					viAlias = true;
 					vimdiffAlias = true;
 					extraLuaConfig = builtins.concatStringsSep "\n" [
+						(lib.strings.fileContents ./general/commands.lua)
 						(lib.strings.fileContents ./general/keymaps.lua)
 						(lib.strings.fileContents ./general/options.lua)
 					];

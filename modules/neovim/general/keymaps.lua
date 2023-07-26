@@ -34,6 +34,3 @@ keymap("n", "<leader><Tab>", "<C-^>", opts)
 
 -- Copy buffer into clipboard
 keymap("n", "<leader>y", ":w !xsel -ib<CR><CR>", opts)
-
--- Delete trailing whitespace
--- keymap("n", "<leader>d", [[<cmd>%s/\s\+$//e<CR>]], opts)
