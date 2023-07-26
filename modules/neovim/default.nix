@@ -130,12 +130,6 @@ in
 						}
 
 						{
-							plugin = spellsitter-nvim;
-							type = "lua";
-							config = builtins.readFile ./plugins/spellsitter.lua;
-						}
-
-						{
 							plugin = telescope-nvim;
 							type = "lua";
 							config = builtins.readFile ./plugins/telescope.lua;
