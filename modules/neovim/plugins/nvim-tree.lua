@@ -2,7 +2,7 @@ local tree = require "nvim-tree"
 local config = require "nvim-tree.config"
 
 tree.setup({
-	disable_netrw = true,
+	disable_netrw = false, -- needed to download spell files
 	hijack_cursor = true,
 	hijack_netrw = true,
 	hijack_unnamed_buffer_when_opening = false,
