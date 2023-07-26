@@ -75,9 +75,11 @@ lsp.rnix.setup(opts)
 lsp.pyright.setup(opts)
 
 -- C/C++
-lsp.clangd.setup(opts)
-local notify = vim.notify
-vim.notify = function(msg, ...)
-	if msg:match "warning: multiple different client offset_encodings" then return end
-	notify(msg, ...)
-end
+lsp.clangd.setup({
+	on_attach = function(client, bufnr)
+		-- Remove clangd's multiple offset_encodings warning
+		client.server_capabilities.signatureHelpProvider = false
+		handlers.on_attach(client, bufnr)
+	end,
+	capabilities,
+})
