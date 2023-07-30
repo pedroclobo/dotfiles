@@ -13,11 +13,6 @@ in {
 			home.packages = with pkgs; [
 				(nerdfonts.override { fonts = [ "UbuntuMono" ]; })
 				dmenu
-				picom
-				redshift
-				unclutter
-				xcape
-				xorg.setxkbmap
 				xorg.xset
 			];
 
@@ -27,36 +22,12 @@ in {
 					extraConfig = builtins.readFile ./xmobar;
 				};
 			};
-
-			/* xsession = {
-				enable = true;
-				initExtra = ''
-					# Remap caps to control
-					setxkbmap pt -option "caps:ctrl_modifier" &
-					xcape -e "Caps_Lock=Escape" &
-
-					nitrogen --restore &        # Set wallpaper
-					xset s off -dpms &          # Disable screen timeout
-					unclutter &                 # Hide mouse cursor when inactive
-					redshift &                  # Night light
-					picom &                     # Compositor
-				'';
-			}; */
-
-			services = {
-				picom = {
-					enable = true;
-				};
-			};
 		};
 
-		services.xserver = {
+		services.xserver.windowManager.xmonad = {
 			enable = true;
-			windowManager.xmonad = {
-				enable = true; 
-				enableContribAndExtras = true; 
-				config = builtins.readFile ./xmonad.hs;
-			};
+			enableContribAndExtras = true;
+			config = builtins.readFile ./xmonad.hs;
 		};
 	};
 }

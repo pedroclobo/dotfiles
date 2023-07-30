@@ -13,30 +13,13 @@ in {
 			home.packages = with pkgs; [
 				dmenu
 				(nerdfonts.override { fonts = [ "UbuntuMono" ]; })
-				picom
-				redshift
-				unclutter
-				xcape
-				xorg.xset
-				xorg.setxkbmap
-
 				python310Packages.psutil
 			];
 
 			home.file = {
 				".config/qtile/config.py".text = builtins.readFile ./config.py;
 			};
-
-			services = {
-				picom = {
-					enable = true;
-				};
-			};
 		};
-
-		services.xserver = {
-			enable = true;
-			windowManager = { qtile = { enable = true; }; };
-		};
+		services.xserver.windowManager.qtile.enable = true;
 	};
 }
