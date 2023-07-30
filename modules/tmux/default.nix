@@ -21,6 +21,7 @@ in {
 				set-option -sa terminal-overrides ',alacritty:RGB'
 				set -g status-left ""
 				set -g status-right ""
+				bind -T copy-mode-vi v send -X begin-selection
 			'';
 			plugins = with pkgs.tmuxPlugins; [
 				{
