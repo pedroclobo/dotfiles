@@ -125,6 +125,7 @@
 		unzip
 		wget
 		zip
+		zoom-us
 	];
 
 	system.stateVersion = "22.11";
