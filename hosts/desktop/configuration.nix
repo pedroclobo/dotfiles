@@ -97,6 +97,10 @@
 		unclutter.enable = true;
 		virt-manager.enable = true;
 		xcape.enable = true;
+		xdg = {
+			enable = true;
+			home = "/home/pedro";
+		};
 		xorg.enable = true;
 		xmonad.enable = true;
 		zathura.enable = true;
