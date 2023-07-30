@@ -110,6 +110,7 @@
 		};
 		sxiv.enable = true;
 		tmux.enable = true;
+		unclutter.enable = true;
 		xmonad.enable = true;
 		zathura.enable = true;
 		zsh.enable = true;
