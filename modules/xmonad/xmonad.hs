@@ -2,11 +2,15 @@ import XMonad
 import Data.Monoid
 import System.Exit
 import Graphics.X11.ExtraTypes.XF86
+import XMonad.Actions.NoBorders
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks (ToggleStruts(..))
 import XMonad.Hooks.WindowSwallowing
+import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL))
 import XMonad.Util.SpawnOnce
 import XMonad.Util.NamedScratchpad
 
+import qualified XMonad.Layout.MultiToggle as MT (Toggle(..))
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
@@ -50,6 +54,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 	  ((modm,               xK_h      ), sendMessage Shrink             ),
 	  ((modm,               xK_l      ), sendMessage Expand             ),
 	  ((modm,               xK_t      ), withFocused $ windows . W.sink ),
+	  ((modm,               xK_f      ), withFocused toggleBorder >>
+	                                     sendMessage (MT.Toggle NBFULL) >>
+	                                     sendMessage ToggleStruts ),
 
 	  -- xmonad
 	  ((modm .|. shiftMask, xK_q      ), spawn "xmonad --restart"       )
