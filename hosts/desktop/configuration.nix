@@ -89,7 +89,13 @@
 		gpg.enable = true;
 		neovim.enable = true;
 		plymouth.enable = true;
+		nitrogen.enable = true;
 		qtile.enable = true;
+		redshift = {
+			enable = true;
+			latitude = 38.71;
+			longitude = -9.3;
+		};
 		scripts = {
 			compiler.enable = true;
 			opout.enable = true;

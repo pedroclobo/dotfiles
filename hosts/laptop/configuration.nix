@@ -101,7 +101,13 @@
 			yt-dl.enable = true;
 		};
 		neovim.enable = true;
+		nitrogen.enable = true;
 		qtile.enable = true;
+		redshift = {
+			enable = true;
+			latitude = 38.71;
+			longitude = -9.3;
+		};
 		sxiv.enable = true;
 		tmux.enable = true;
 		xmonad.enable = true;
