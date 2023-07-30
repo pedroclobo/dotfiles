@@ -76,6 +76,7 @@
 			autoLogin.enable = false;
 			defaultSession = "none+xmonad";
 		};
+		mpv.enable = true;
 		scripts = {
 			compiler.enable = true;
 			opout.enable = true;

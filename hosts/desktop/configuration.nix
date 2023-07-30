@@ -70,6 +70,7 @@
 				${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
 			'';
 		};
+		mpv.enable = true;
 		neovim.enable = true;
 		plymouth.enable = true;
 		nitrogen.enable = true;
