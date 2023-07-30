@@ -33,6 +33,8 @@ in {
 					"text/x-pascal" = "nvim.desktop";
 					"text/x-python" = "nvim.desktop";
 					"text/x-shellscript" = "nvim.desktop";
+					"video/mp4" = "mpv.desktop";
+					"video/webm" = "mpv.desktop";
 				};
 			};
 			userDirs = {
