@@ -171,14 +171,7 @@ in
 				};
 			};
 			home.file = {
-				".config/nvim/after/ftplugin/c.lua".text = builtins.readFile ./ftplugin/c.lua;
-				".config/nvim/after/ftplugin/cpp.lua".text = builtins.readFile ./ftplugin/cpp.lua;
-				".config/nvim/after/ftplugin/gitcommit.lua".text = builtins.readFile ./ftplugin/gitcommit.lua;
-				".config/nvim/after/ftplugin/json.lua".text = builtins.readFile ./ftplugin/json.lua;
-				".config/nvim/after/ftplugin/markdown.lua".text = builtins.readFile ./ftplugin/markdown.lua;
 				".config/nvim/after/ftplugin/python.lua".text = builtins.readFile ./ftplugin/python.lua;
-				".config/nvim/after/ftplugin/rust.lua".text = builtins.readFile ./ftplugin/rust.lua;
-				".config/nvim/after/ftplugin/tex.lua".text = builtins.readFile ./ftplugin/tex.lua;
 			};
 		};
 	};

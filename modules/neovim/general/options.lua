@@ -15,6 +15,7 @@ local options = {
 	showcmd = false,
 	showmode = false,
 	signcolumn = "yes",
+	spell = true,
 	spelllang = "en_us,pt_pt",
 	swapfile = false,
 	tabstop = 4,
