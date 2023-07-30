@@ -102,6 +102,7 @@
 		};
 		neovim.enable = true;
 		nitrogen.enable = true;
+		picom.enable = true;
 		qtile.enable = true;
 		redshift = {
 			enable = true;
