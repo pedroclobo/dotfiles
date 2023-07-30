@@ -44,10 +44,6 @@
 
 	# Xorg
 	services.xserver = {
-		displayManager = {
-			defaultSession = "none+xmonad";
-			lightdm.enable = true;
-		};
 		libinput = {
 			enable = true;
 			touchpad = {
@@ -75,6 +71,11 @@
 		firefox.enable = true;
 		git.enable = true;
 		gpg.enable = true;
+		lightdm = {
+			enable = true;
+			autoLogin.enable = false;
+			defaultSession = "none+xmonad";
+		};
 		scripts = {
 			compiler.enable = true;
 			opout.enable = true;
