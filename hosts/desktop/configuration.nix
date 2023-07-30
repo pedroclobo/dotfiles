@@ -44,9 +44,6 @@
 
 	# Xorg
 	services.xserver = {
-		layout = "pt";
-		xkbVariant = "";
-		enable = true;
 		displayManager = {
 			autoLogin = {
 				enable = true;
@@ -58,16 +55,6 @@
 				${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
 			'';
 		};
-	};
-
-	services.getty = {
-		autologinUser = "pedro";
-		extraArgs = [
-			"--skip-login"
-			"--nonewline"
-			"--noissue"
-			"--noclear"
-		];
 	};
 
 	# Security
@@ -113,6 +100,7 @@
 		tmux.enable = true;
 		unclutter.enable = true;
 		virt-manager.enable = true;
+		xorg.enable = true;
 		xmonad.enable = true;
 		zathura.enable = true;
 		zsh.enable = true;

@@ -44,9 +44,6 @@
 
 	# Xorg
 	services.xserver = {
-		layout = "pt";
-		xkbVariant = "";
-		enable = true;
 		displayManager = {
 			defaultSession = "none+xmonad";
 			lightdm.enable = true;
@@ -59,16 +56,6 @@
 				tapping = false;
 			};
 		};
-	};
-
-	services.getty = {
-		autologinUser = "pedro";
-		extraArgs = [
-			"--skip-login"
-			"--nonewline"
-			"--noissue"
-			"--noclear"
-		];
 	};
 
 	# Security
@@ -112,6 +99,7 @@
 		sxiv.enable = true;
 		tmux.enable = true;
 		unclutter.enable = true;
+		xorg.enable = true;
 		xmonad.enable = true;
 		zathura.enable = true;
 		zsh.enable = true;
