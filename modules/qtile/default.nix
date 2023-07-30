@@ -12,7 +12,6 @@ in {
 		hm = {
 			home.packages = with pkgs; [
 				dmenu
-				(nerdfonts.override { fonts = [ "UbuntuMono" ]; })
 				python310Packages.psutil
 			];
 

@@ -11,7 +11,6 @@ in {
 	config = mkIf cfg.enable {
 		hm = {
 			home.packages = with pkgs; [
-				(nerdfonts.override { fonts = [ "UbuntuMono" ]; })
 				dmenu
 				xorg.xset
 			];

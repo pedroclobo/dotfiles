@@ -126,5 +126,9 @@
 		zoom-us
 	];
 
+	fonts.fonts =  with pkgs; [
+		(nerdfonts.override { fonts = [ "UbuntuMono" ]; })
+	];
+
 	system.stateVersion = "22.11";
 }
