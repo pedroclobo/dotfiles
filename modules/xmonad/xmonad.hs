@@ -2,15 +2,16 @@ import XMonad
 import Data.Monoid
 import System.Exit
 import Graphics.X11.ExtraTypes.XF86
-import XMonad.Actions.NoBorders
 import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks (ToggleStruts(..))
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.WindowSwallowing
-import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL))
-import XMonad.Util.SpawnOnce
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Renamed
+import XMonad.Layout.ToggleLayouts
 import XMonad.Util.NamedScratchpad
+import XMonad.Util.SpawnOnce
 
-import qualified XMonad.Layout.MultiToggle as MT (Toggle(..))
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
@@ -54,8 +55,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 	  ((modm,               xK_h      ), sendMessage Shrink             ),
 	  ((modm,               xK_l      ), sendMessage Expand             ),
 	  ((modm,               xK_t      ), withFocused $ windows . W.sink ),
-	  ((modm,               xK_f      ), withFocused toggleBorder >>
-	                                     sendMessage (MT.Toggle NBFULL) >>
+	  ((modm,               xK_f      ), sendMessage (Toggle "Full") >>
 	                                     sendMessage ToggleStruts ),
 
 	  -- xmonad
@@ -88,9 +88,11 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 ------------------------------------------------------------------------
 
 -- Layouts
-myLayout = tiled ||| Full
+myLayout = avoidStruts $ toggleLayouts (full) (tiled)
 	where
-		tiled = Tall nmaster delta ratio
+		tiled = renamed [Replace "Tall"] $ smartBorders $ Tall nmaster delta ratio
+		full = renamed [Replace "Full"] $ noBorders Full
+
 		nmaster = 1
 		ratio   = 1/2
 		delta   = 2/100
@@ -146,7 +148,7 @@ myStartupHook = do
 
 ------------------------------------------------------------------------
 
-main = xmonad =<< statusBar myBar myPP toggleStrutsKey defaults
+main = xmonad . ewmhFullscreen . ewmh =<< statusBar myBar myPP toggleStrutsKey defaults
 
 defaults = def {
 	focusFollowsMouse  = myFocusFollowsMouse,
