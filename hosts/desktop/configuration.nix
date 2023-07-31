@@ -94,6 +94,7 @@
 			yt-dl.enable = true;
 		};
 		sxiv.enable = true;
+		syncthing.enable = true;
 		tmux.enable = true;
 		unclutter.enable = true;
 		virt-manager.enable = true;
@@ -119,7 +120,6 @@
 		pulsemixer
 		scrcpy
 		slack
-		syncthing
 		tree
 		unzip
 		wget

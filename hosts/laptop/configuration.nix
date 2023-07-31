@@ -99,6 +99,7 @@
 			longitude = -9.3;
 		};
 		sxiv.enable = true;
+		syncthing.enable = true;
 		tmux.enable = true;
 		unclutter.enable = true;
 		xcape.enable = true;
@@ -123,7 +124,6 @@
 		pulsemixer
 		scrcpy
 		slack
-		syncthing
 		tree
 		unzip
 		wget
