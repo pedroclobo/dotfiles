@@ -16,6 +16,7 @@ let
 		lua
 		markdown
 		nix
+		ocaml
 		python
 		rust
 		toml
@@ -154,6 +155,7 @@ in
 						rust-analyzer
 						nodePackages.pyright
 						llvmPackages_9.libclang
+						ocamlPackages.ocaml-lsp
 
 						# Linters
 						shellcheck
@@ -163,6 +165,7 @@ in
 						shfmt
 						stylua
 						yapf
+						ocamlformat
 
 						nodejs_18
 						xclip
@@ -171,6 +174,7 @@ in
 				};
 			};
 			home.file = {
+				".config/nvim/after/ftplugin/ocaml.lua".text = builtins.readFile ./ftplugin/ocaml.lua;
 				".config/nvim/after/ftplugin/python.lua".text = builtins.readFile ./ftplugin/python.lua;
 			};
 		};

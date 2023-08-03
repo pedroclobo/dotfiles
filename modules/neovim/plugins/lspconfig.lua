@@ -83,3 +83,6 @@ lsp.clangd.setup({
 	end,
 	capabilities,
 })
+
+-- OCaml
+lsp.ocamllsp.setup(opts)

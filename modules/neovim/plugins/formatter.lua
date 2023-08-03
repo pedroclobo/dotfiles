@@ -49,6 +49,18 @@ formatter.setup({
 				}
 			end,
 		},
+		ocaml = {
+			function()
+				return {
+					exe = "ocamlformat",
+					args = {
+						"--enable-outside-detected-project",
+						util.escape_path(util.get_current_buffer_file_name()),
+					},
+					stdin = true,
+				}
+			end,
+		},
 		python = {
 			function()
 				return {
