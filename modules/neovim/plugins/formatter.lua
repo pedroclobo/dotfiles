@@ -76,10 +76,6 @@ formatter.setup({
 			function()
 				return {
 					exe = "rustfmt",
-					args = {
-						"--config",
-						"hard_tabs=true",
-					},
 					stdin = true,
 				}
 			end,
