@@ -83,6 +83,7 @@
 		};
 		scripts = {
 			compiler.enable = true;
+			keyboard.enable = true;
 			opout.enable = true;
 			power.enable = true;
 			screen-clip.enable = true;

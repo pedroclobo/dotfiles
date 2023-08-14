@@ -41,6 +41,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 	  ((modm,               xK_Escape ), spawn "power"                  ),
 	  ((0,                  xK_Print  ), spawn "screen-save"            ),
 	  ((shiftMask,          xK_Print  ), spawn "screen-clip"            ),
+	  ((modm .|. shiftMask, xK_t      ), spawn "keyboard"               ),
 
 	  -- layouts
 	  ((modm,               xK_Tab    ), sendMessage NextLayout         ),
