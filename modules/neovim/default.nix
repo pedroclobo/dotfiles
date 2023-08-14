@@ -161,6 +161,7 @@ in
 						shellcheck
 
 						# Formatters
+						nixfmt
 						rustfmt
 						shfmt
 						stylua
@@ -174,6 +175,7 @@ in
 				};
 			};
 			home.file = {
+				".config/nvim/after/ftplugin/nix.lua".text = builtins.readFile ./ftplugin/nix.lua;
 				".config/nvim/after/ftplugin/ocaml.lua".text = builtins.readFile ./ftplugin/ocaml.lua;
 				".config/nvim/after/ftplugin/python.lua".text = builtins.readFile ./ftplugin/python.lua;
 				".config/nvim/after/ftplugin/rust.lua".text = builtins.readFile ./ftplugin/rust.lua;
