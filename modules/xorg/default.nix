@@ -8,7 +8,7 @@ in {
 
 	config = mkIf cfg.enable {
 		services.xserver = {
-			layout = "pt";
+			layout = "us";
 			xkbVariant = "";
 			enable = true;
 		};
