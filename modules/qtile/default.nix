@@ -1,24 +1,19 @@
 { pkgs, config, lib, ... }:
 
 let
-	cfg = config.modules.qtile;
-	inherit (lib) mkEnableOption mkIf mkOption types;
+  cfg = config.modules.qtile;
+  inherit (lib) mkEnableOption mkIf mkOption types;
 in {
-	options.modules.qtile = {
-		enable = mkEnableOption "qtile";
-	};
+  options.modules.qtile = { enable = mkEnableOption "qtile"; };
 
-	config = mkIf cfg.enable {
-		hm = {
-			home.packages = with pkgs; [
-				dmenu
-				python310Packages.psutil
-			];
+  config = mkIf cfg.enable {
+    hm = {
+      home.packages = with pkgs; [ dmenu python310Packages.psutil ];
 
-			home.file = {
-				".config/qtile/config.py".text = builtins.readFile ./config.py;
-			};
-		};
-		services.xserver.windowManager.qtile.enable = true;
-	};
+      home.file = {
+        ".config/qtile/config.py".text = builtins.readFile ./config.py;
+      };
+    };
+    services.xserver.windowManager.qtile.enable = true;
+  };
 }

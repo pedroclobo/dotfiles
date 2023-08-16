@@ -1,53 +1,52 @@
 {
-	description = "NixOS System Configuration";
+  description = "NixOS System Configuration";
 
-	inputs = {
-		nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
-		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-		home-manager = {
-			url = "github:nix-community/home-manager/release-23.05";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-	};
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-23.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
 
-	outputs = { self, nixpkgs, nixpkgs-unstable, home-manager }:
-		let
-			system = "x86_64-linux";
-			username = "pedro";
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager }:
+    let
+      system = "x86_64-linux";
+      username = "pedro";
 
-			inherit (nixpkgs) lib;
+      inherit (nixpkgs) lib;
 
-			util = import ./lib { inherit system pkgs home-manager lib; };
+      util = import ./lib { inherit system pkgs home-manager lib; };
 
-			pkg-sets = final: prev:
-				let
-					args = {
-						system = system;
-						config.allowUnfree = true;
-					};
-				in
-				{ unstable = import nixpkgs-unstable args; };
+      pkg-sets = final: prev:
+        let
+          args = {
+            system = system;
+            config.allowUnfree = true;
+          };
+        in { unstable = import nixpkgs-unstable args; };
 
-			pkgs = import nixpkgs {
-				inherit system;
-				config.allowUnfree = true;
-				overlays = util.mkOverlays ./overlays ++ [ pkg-sets ];
-			};
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+        overlays = util.mkOverlays ./overlays ++ [ pkg-sets ];
+      };
 
-		in {
-			nixosConfigurations = {
-				vm = util.mkHost {
-					hostname = "vm";
-					username = username;
-				};
-				desktop = util.mkHost {
-					hostname = "desktop";
-					username = username;
-				};
-				laptop = util.mkHost {
-					hostname = "laptop";
-					username = username;
-				};
-			};
-		};
+    in {
+      nixosConfigurations = {
+        vm = util.mkHost {
+          hostname = "vm";
+          username = username;
+        };
+        desktop = util.mkHost {
+          hostname = "desktop";
+          username = username;
+        };
+        laptop = util.mkHost {
+          hostname = "laptop";
+          username = username;
+        };
+      };
+    };
 }

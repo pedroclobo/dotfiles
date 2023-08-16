@@ -1,32 +1,27 @@
 { pkgs, config, lib, ... }:
 
 let
-	cfg = config.modules.xmonad;
-	inherit (lib) mkEnableOption mkIf mkOption types;
+  cfg = config.modules.xmonad;
+  inherit (lib) mkEnableOption mkIf mkOption types;
 in {
-	options.modules.xmonad = {
-		enable = mkEnableOption "xmonad";
-	};
+  options.modules.xmonad = { enable = mkEnableOption "xmonad"; };
 
-	config = mkIf cfg.enable {
-		hm = {
-			home.packages = with pkgs; [
-				dmenu
-				xorg.xset
-			];
+  config = mkIf cfg.enable {
+    hm = {
+      home.packages = with pkgs; [ dmenu xorg.xset ];
 
-			programs = {
-				xmobar = {
-					enable = true;
-					extraConfig = builtins.readFile ./xmobar;
-				};
-			};
-		};
+      programs = {
+        xmobar = {
+          enable = true;
+          extraConfig = builtins.readFile ./xmobar;
+        };
+      };
+    };
 
-		services.xserver.windowManager.xmonad = {
-			enable = true;
-			enableContribAndExtras = true;
-			config = builtins.readFile ./xmonad.hs;
-		};
-	};
+    services.xserver.windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      config = builtins.readFile ./xmonad.hs;
+    };
+  };
 }
