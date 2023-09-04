@@ -72,10 +72,8 @@ formatter.setup({
 		python = {
 			function()
 				return {
-					exe = "yapf",
-					args = {
-						"--style=\"{use_tabs: True}\"",
-					},
+					exe = "black",
+					args = { "-q", "-" },
 					stdin = true,
 				}
 			end,

@@ -162,7 +162,7 @@ in {
             rustfmt
             shfmt
             stylua
-            yapf
+            black
             ocamlformat
 
             nodejs_18
