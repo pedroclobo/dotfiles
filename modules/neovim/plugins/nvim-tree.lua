@@ -1,7 +1,20 @@
 local tree = require "nvim-tree"
-local config = require "nvim-tree.config"
+
+local function on_attach(bufnr)
+	local api = require "nvim-tree.api"
+
+	local function opts(desc)
+		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+	end
+	api.config.mappings.default_on_attach(bufnr)
+
+	vim.keymap.set("n", "l", api.node.open.edit, opts "Open")
+	vim.keymap.set("n", "h", api.node.navigate.parent_close, opts "Close")
+end
 
 tree.setup({
+	on_attach = on_attach,
+
 	disable_netrw = false, -- needed to download spell files
 	hijack_cursor = true,
 	hijack_netrw = true,
@@ -11,13 +24,6 @@ tree.setup({
 	view = {
 		width = 30,
 		side = "right",
-		mappings = {
-			custom_only = false,
-			list = {
-				{ key = "l", cb = config.nvim_tree_callback "edit" },
-				{ key = "h", cb = config.nvim_tree_callback "close_node" },
-			},
-		},
 	},
 	renderer = {
 		highlight_git = false,
