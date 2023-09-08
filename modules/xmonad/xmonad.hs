@@ -117,6 +117,7 @@ myManageHook = composeAll
 	[
 	  className =? "pinentry" --> doFloat,
 	  className =? "firefox"  --> doShift ( myWorkspaces !! 1 ),
+	  className =? "Slack"    --> doShift ( myWorkspaces !! 7 ),
 	  className =? "discord"  --> doShift ( myWorkspaces !! 8 )
 	] <+> namedScratchpadManageHook myScratchpads
 
