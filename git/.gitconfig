@@ -1,0 +1,7 @@
+[init]
+	defaultBranch = main
+[alias]
+    graph = log --all --graph --decorate --oneline
+[user]
+	name = Pedro Lobo
+	email = pedrocerqueiralobo@gmail.com
